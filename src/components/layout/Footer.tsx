@@ -7,7 +7,7 @@ export function Footer() {
             <div className="container-custom">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="flex flex-col items-start gap-4 mb-4 md:mb-0">
-                        <div className="flex items-center gap-8">
+                        <div className="flex items-center gap-6 md:gap-8">
                             <Image
                                 src={`${BASE_PATH}/images/hlab_logo_clear_transp.png`}
                                 alt="H-Lab"
@@ -15,13 +15,13 @@ export function Footer() {
                                 height={120}
                                 className="h-24 w-auto object-contain"
                             />
-                            <div className="h-20 w-px bg-slate-300 dark:bg-slate-700 mx-2" />
+                            <div className="h-20 w-px bg-slate-300 dark:bg-slate-700 mx-1 md:mx-2" />
                             <Image
                                 src={`${BASE_PATH}/images/Signature01_5.png`}
                                 alt="Sungkyunkwan University"
                                 width={300}
                                 height={90}
-                                className="h-16 w-auto object-contain"
+                                className="h-[57.6px] md:h-16 w-auto object-contain"
                             />
                         </div>
                     </div>
