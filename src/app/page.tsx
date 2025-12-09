@@ -1,65 +1,113 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { ArrowRight, Brain, HeartPulse, Bot, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navbar />
+
+      <main className="flex-grow">
+        {/* Large Hero Section */}
+        <section className="relative pt-28 pb-24 md:pt-60 md:pb-32 overflow-hidden">
+          <div className="container-custom flex flex-col items-center text-center">
+            <h1 className="h1-hero text-foreground mb-6 animate-fade-in-up">
+              Intelligence. <br />
+              <span className="text-secondary mt-[0.1em] block">Redefined.</span>
+            </h1>
+            <p className="text-body max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              인공지능, 헬스케어 데이터 사이언스, 그리고 로보틱스의 융합을 추구합니다.
+            </p>
+
+
+
+            {/* Subtle Hero Visual */}
+            {/* Subtle Hero Visual */}
+            <div className="relative mt-16 w-full max-w-[780px] h-[240px] md:h-[480px] bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <Image
+                src="/images/hero_bg_wom_v2.png"
+                alt="H-Lab Hero Visual"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+                priority
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Bento Grid Research Areas */}
+        <section id="research" className="py-24 bg-zinc-50 dark:bg-[#050505]">
+          <div className="container-custom">
+            <h2 className="h2-title mb-16 text-center">Research Areas</h2>
+
+            <div className="flex flex-col gap-6 items-center">
+              {/* Card 3: Robotics */}
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[134px] md:h-[269px]">
+                <div className="z-10">
+                  <Link href="/research#robot" className="hover:text-primary transition-colors">
+                    <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Robot Physical AI</h3>
+                  </Link>
+                  <p className="text-sm md:text-body max-w-md line-clamp-2">동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.</p>
+                </div>
+                <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-amber-50/50 to-transparent dark:from-amber-900/10 pointer-events-none" />
+                <div className="mt-auto pt-4 md:pt-8 flex items-end justify-between relative z-10">
+                  <Link href="/research" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <Bot className="h-16 w-16 md:h-24 md:w-24 text-amber-500/20 absolute bottom-0 right-0 group-hover:rotate-12 transition-transform duration-700 ease-out" />
+                </div>
+              </div>
+
+              {/* Card 1: AI (Large Span) */}
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[134px] md:h-[269px]">
+                <div className="z-10">
+                  <Link href="/research#ai" className="hover:text-primary transition-colors">
+                    <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Human Assistive AI</h3>
+                  </Link>
+                  <p className="text-sm md:text-body max-w-md line-clamp-2">사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.</p>
+                </div>
+                <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none" />
+                <div className="mt-auto pt-4 md:pt-8 flex items-end justify-between relative z-10">
+                  <Link href="/research" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <Brain className="h-16 w-16 md:h-24 md:w-24 text-blue-500/20 absolute bottom-0 right-0 group-hover:scale-110 transition-transform duration-700 ease-out" />
+                </div>
+              </div>
+
+              {/* Card 2: Healthcare (Tall) */}
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[134px] md:h-[269px]">
+                <div className="z-10">
+                  <Link href="/research#healthcare" className="hover:text-primary transition-colors">
+                    <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Healthcare AI</h3>
+                  </Link>
+                  <p className="text-sm md:text-body mb-2 md:mb-6 line-clamp-2">데이터 기반 예측 모델링으로 맞춤형 진단을 혁신합니다.</p>
+                </div>
+                <div className="flex items-center justify-end relative z-10">
+                  <HeartPulse className="h-16 w-16 md:h-24 md:w-24 text-rose-500/20 animate-pulse mr-2" />
+                  <Link href="/research" className="text-primary hover:underline font-medium text-sm md:text-base">Explore &rarr;</Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Footer Callout */}
+        <section className="py-20 bg-background border-t border-gray-100 dark:border-gray-900">
+          <div className="container-custom text-center">
+            <h2 className="text-[1.8rem] md:text-[2.25rem] font-bold mb-4 tracking-tight">Interested in joining us?</h2>
+            <Link href="/contact" className="inline-block bg-primary text-white px-5 py-2 rounded-full text-[1.05rem] font-medium hover:bg-primary/90 transition-transform active:scale-95">
+              Contact Us
+            </Link>
+          </div>
+        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

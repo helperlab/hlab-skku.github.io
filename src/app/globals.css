@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --background: #ffffff;
+  /* Pure white */
+  --foreground: #1d1d1f;
+  /* Apple's near-black */
+  --primary: #0071e3;
+  /* Apple Blue */
+  --secondary: #86868b;
+  /* Apple Gray */
+  --accent: #f56300;
+  /* Apple Orange/Amber */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    /* Pure black */
+    --foreground: #f5f5f7;
+    /* Apple's off-white */
+    --primary: #2997ff;
+    /* Apple Dark Mode Blue */
+    --secondary: #86868b;
+    /* Apple Gray */
+    --accent: #ff9f0a;
+    /* Apple Dark Mode Orange */
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility container-custom {
+  @apply max-w-[980px] mx-auto px-6 lg:px-8;
+  /* Apple's typical content width is narrow (~980px) or full constrained */
+}
+
+@utility h1-hero {
+  @apply text-[48px] leading-[1.08349] font-bold tracking-tight sm:text-[64px] sm:leading-[1.0625];
+}
+
+@utility h2-title {
+  @apply text-[32px] leading-[1.125] font-semibold tracking-tight sm:text-[40px] sm:leading-[1.1];
+}
+
+@utility text-body {
+  @apply text-[17px] leading-[1.47059] font-normal text-secondary sm:text-[19px] sm:leading-[1.4211];
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@layer utilities {
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .glass-nav {
+      background-color: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  }
 }
