@@ -413,7 +413,7 @@ export default function ResearchPage() {
                                 key={area.id}
                                 id={area.id}
                                 className={cn(
-                                    "flex flex-col md:flex-row gap-16 items-center",
+                                    "flex flex-col md:flex-row gap-16 items-center scroll-mt-32",
                                     index % 2 === 1 ? "md:flex-row-reverse" : ""
                                 )}
                             >
