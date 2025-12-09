@@ -60,7 +60,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Google Map Embed */}
-                        <div className="bg-gray-100 dark:bg-[#1a1a1a] rounded-[32px] overflow-hidden h-full shadow-lg">
+                        <div className="bg-gray-100 dark:bg-[#1a1a1a] rounded-[32px] overflow-hidden h-full md:h-full aspect-[4/3] md:aspect-auto shadow-lg">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.6791552528147!2d126.97395027641217!3d37.29410317209703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b41e3d3090f27%3A0xc3124508ec39634!2z7ISx6reg6rSAOuMgO2SkeSxjCDdoJE!5e0!3m2!1sko!2skr!4v1716382000000!5m2!1sko!2skr"
                                 width="100%"
@@ -70,6 +70,7 @@ export default function ContactPage() {
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Helper Lab Location"
+                                className="w-full h-full"
                             ></iframe>
                         </div>
                     </div>
