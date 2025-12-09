@@ -15,6 +15,7 @@ interface Member {
     bio?: string;
     research?: string;
     image?: string | null;
+    url?: string;
 }
 
 const members: { role: string; people: Member[] }[] = [
@@ -26,7 +27,8 @@ const members: { role: string; people: Member[] }[] = [
                 title: "Professor",
                 bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 AI, 로보틱스, 헬스케어입니다.",
                 email: "mtchoi@skku.edu",
-                image: null
+                image: null,
+                url: "https://professor.skku.edu/researcher/professorList.do?mode=view&perId=LZStrBwOQlgzg6gdgkgDwIYCkDCAhATAUzABhgHEBOHALQEEBeaoA%20&jojikCode2=7101DM&jojikCode1=3163&categoryId=G"
             }
         ]
     },
@@ -79,7 +81,15 @@ export default function MembersPage() {
                                                     </div>
                                                 )}
                                             </div>
-                                            <h3 className="text-[24px] font-semibold text-foreground mb-2">{person.name}</h3>
+                                            <h3 className="text-[24px] font-semibold text-foreground mb-2">
+                                                {person.url ? (
+                                                    <a href={person.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                                        {person.name}
+                                                    </a>
+                                                ) : (
+                                                    person.name
+                                                )}
+                                            </h3>
                                             {person.title && <p className="text-primary text-[17px] font-medium mb-1">{person.title}</p>}
                                             {person.research && <p className="text-secondary text-[17px] mb-2">{person.research}</p>}
                                             {person.bio && <p className="text-secondary text-[15px] mt-4 max-w-sm leading-relaxed">{person.bio}</p>}
