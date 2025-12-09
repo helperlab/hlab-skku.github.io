@@ -1,65 +1,121 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Brain, HeartPulse, Bot, Microscope, Cpu, Database, ChevronDown, ChevronUp, Play } from "lucide-react";
+import { Brain, HeartPulse, Bot, Microscope, Cpu, Database, ChevronDown, ChevronUp, Play, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { BASE_PATH } from "@/lib/constants";
 
 // ProjectCard 컴포넌트
 function ProjectCard({ project }: { project: any }) {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const hasContent = project.detailedDescription || (project.images && project.images.length > 0) || (project.videos && project.videos.length > 0);
 
     return (
-        <div className="rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-gray-800 overflow-hidden hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition-colors">
-            <div 
-                className={cn(
-                    "p-4 cursor-pointer",
-                    hasContent && "hover:bg-gray-100 dark:hover:bg-[#1a1a1a]"
-                )}
-                onClick={() => hasContent && setIsExpanded(!isExpanded)}
-            >
-                <div className="flex items-start gap-3">
-                    <span className="text-primary mt-0.5">{project.icon}</span>
-                    <div className="flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                            <h4 className="font-semibold text-[16px] mb-1">{project.title}</h4>
-                            {hasContent && (
-                                <span className="text-secondary">
-                                    {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                                </span>
-                            )}
+        <>
+            <div className="rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-gray-800 overflow-hidden hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition-colors">
+                <div 
+                    className={cn(
+                        "p-4",
+                        hasContent && "cursor-pointer hover:bg-gray-100 dark:hover:bg-[#1a1a1a]"
+                    )}
+                    onClick={() => hasContent && setIsModalOpen(true)}
+                >
+                    <div className="flex items-start gap-3">
+                        <span className="text-primary mt-0.5">{project.icon}</span>
+                        <div className="flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                                <h4 className="font-semibold text-[16px] mb-1">{project.title}</h4>
+                                {hasContent && (
+                                    <span className="text-secondary">
+                                        <ChevronDown className="h-4 w-4" />
+                                    </span>
+                                )}
+                            </div>
+                            <p className="text-secondary text-[14px] leading-relaxed">{project.description}</p>
                         </div>
-                        <p className="text-secondary text-[14px] leading-relaxed">{project.description}</p>
                     </div>
                 </div>
             </div>
 
-            {/* 확장된 내용 */}
-            {isExpanded && hasContent && (
-                <div className="px-4 pb-4 space-y-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+            {/* 모달 */}
+            {isModalOpen && hasContent && (
+                <ProjectModal project={project} onClose={() => setIsModalOpen(false)} />
+            )}
+        </>
+    );
+}
+
+// ProjectModal 컴포넌트
+function ProjectModal({ project, onClose }: { project: any; onClose: () => void }) {
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                onClose();
+            }
+        };
+        document.addEventListener("keydown", handleEscape);
+        document.body.style.overflow = "hidden"; // 모달 열릴 때 배경 스크롤 방지
+        
+        return () => {
+            document.removeEventListener("keydown", handleEscape);
+            document.body.style.overflow = "unset";
+        };
+    }, [onClose]);
+
+    return (
+        <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={onClose}
+        >
+            <div 
+                className="relative w-full max-w-5xl max-h-[90vh] bg-background rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* 헤더 */}
+                <div className="flex items-start justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+                    <div className="flex items-start gap-4 flex-1">
+                        <span className="text-primary mt-1">{project.icon}</span>
+                        <div className="flex-1">
+                            <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-secondary">{project.description}</p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="ml-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Close"
+                    >
+                        <X className="h-5 w-5" />
+                    </button>
+                </div>
+
+                {/* 내용 (스크롤 가능) */}
+                <div className="flex-1 overflow-y-auto p-6 space-y-6">
                     {/* 상세 설명 */}
                     {project.detailedDescription && (
-                        <p className="text-secondary text-[14px] leading-relaxed whitespace-pre-line">
-                            {project.detailedDescription}
-                        </p>
+                        <div>
+                            <h4 className="text-lg font-semibold mb-3">Description</h4>
+                            <p className="text-secondary leading-relaxed whitespace-pre-line">
+                                {project.detailedDescription}
+                            </p>
+                        </div>
                     )}
 
                     {/* 이미지 갤러리 */}
                     {project.images && project.images.length > 0 && (
-                        <div className="space-y-3">
-                            <h5 className="text-sm font-semibold text-secondary">Images</h5>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <h4 className="text-lg font-semibold mb-4">Images</h4>
+                            <div className="flex flex-col items-center gap-4">
                                 {project.images.map((img: string, imgIdx: number) => (
-                                    <div key={imgIdx} className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
+                                    <div key={imgIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
                                         <Image
                                             src={img}
                                             alt={`${project.title} - Image ${imgIdx + 1}`}
                                             fill
-                                            className="object-cover"
+                                            className="object-contain"
                                         />
                                     </div>
                                 ))}
@@ -69,11 +125,11 @@ function ProjectCard({ project }: { project: any }) {
 
                     {/* 동영상 */}
                     {project.videos && project.videos.length > 0 && (
-                        <div className="space-y-3">
-                            <h5 className="text-sm font-semibold text-secondary">Videos</h5>
-                            <div className="space-y-3">
+                        <div>
+                            <h4 className="text-lg font-semibold mb-4">Videos</h4>
+                            <div className="flex flex-col items-center gap-4">
                                 {project.videos.map((video: any, vidIdx: number) => (
-                                    <div key={vidIdx} className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
+                                    <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
                                         <iframe
                                             src={video.url}
                                             title={video.title || `${project.title} - Video ${vidIdx + 1}`}
@@ -89,17 +145,19 @@ function ProjectCard({ project }: { project: any }) {
 
                     {/* 외부 링크 */}
                     {project.url && (
-                        <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
-                        >
-                            자세히 보기 →
-                        </a>
+                        <div>
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                            >
+                                자세히 보기 →
+                            </a>
+                        </div>
                     )}
                 </div>
-            )}
+            </div>
         </div>
     );
 }
