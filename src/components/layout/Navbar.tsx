@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { BASE_PATH } from "@/lib/constants";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center space-x-2 z-50 group">
                     <div className="relative h-12 md:h-24 w-auto">
                         <Image
-                            src="/images/hlab_logo_clear_transp.png"
+                            src={`${BASE_PATH}/images/hlab_logo_clear_transp.png`}
                             alt="H-Lab Logo"
                             width={360}
                             height={120}

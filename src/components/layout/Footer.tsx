@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 export function Footer() {
     return (
@@ -8,7 +9,7 @@ export function Footer() {
                     <div className="flex flex-col items-start gap-4 mb-4 md:mb-0">
                         <div className="flex items-center gap-8">
                             <Image
-                                src="/images/hlab_logo_clear_transp.png"
+                                src={`${BASE_PATH}/images/hlab_logo_clear_transp.png`}
                                 alt="H-Lab"
                                 width={360}
                                 height={120}
@@ -16,7 +17,7 @@ export function Footer() {
                             />
                             <div className="h-20 w-px bg-slate-300 dark:bg-slate-700 mx-2" />
                             <Image
-                                src="/images/Signature01_5.png"
+                                src={`${BASE_PATH}/images/Signature01_5.png`}
                                 alt="Sungkyunkwan University"
                                 width={300}
                                 height={90}

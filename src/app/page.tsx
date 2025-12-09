@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ArrowRight, Brain, HeartPulse, Bot, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
             {/* Subtle Hero Visual */}
             <div className="relative mt-16 w-full max-w-[780px] h-[240px] md:h-[480px] bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
               <Image
-                src="/images/hero_bg_wom_v2.png"
+                src={`${BASE_PATH}/images/hero_bg_wom_v2.png`}
                 alt="H-Lab Hero Visual"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
