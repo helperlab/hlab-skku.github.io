@@ -2,6 +2,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Brain, HeartPulse, Bot, Microscope, Cpu, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 export const metadata = {
     title: "Research | H-Lab",
@@ -14,26 +16,28 @@ export default function ResearchPage() {
             id: "robot",
             title: "Robot Physical AI",
             icon: <Bot className="h-12 w-12 text-amber-500" />,
-            description: "Developing intelligent robots capable of interacting seamlessly with the physical world.",
+            description: "Developing robotic intelligence capable of interacting seamlessly with the physical world.",
             topics: [
                 { name: "Robot Perception", icon: <Bot className="h-5 w-5" /> },
                 { name: "Human-Robot Interaction", icon: <Brain className="h-5 w-5" /> },
                 { name: "Sim2Real Transfer", icon: <Cpu className="h-5 w-5" /> },
             ],
             color: "bg-amber-50 dark:bg-amber-900/10",
+            image: `${BASE_PATH}/images/robot_physical_ai.png`,
             // borderColor: "border-amber-200 dark:border-amber-800",
         },
         {
             id: "ai",
             title: "Human Assistive AI",
             icon: <Brain className="h-12 w-12 text-primary" />,
-            description: "Pushing the boundaries of machine intelligence through fundamental and applied research.",
+            description: "Advancing human-centric AI for assistive technologies and healthcare applications.",
             topics: [
                 { name: "Generative Models", icon: <Cpu className="h-5 w-5" /> },
                 { name: "Deep Learning Theory", icon: <Database className="h-5 w-5" /> },
                 { name: "Multimodal Learning", icon: <Brain className="h-5 w-5" /> },
             ],
             color: "bg-blue-50 dark:bg-blue-900/10",
+            image: `${BASE_PATH}/images/human_assist_ai.png`,
             // borderColor: "border-blue-200 dark:border-blue-800",
         },
         {
@@ -47,6 +51,7 @@ export default function ResearchPage() {
                 { name: "Personalized Medicine", icon: <HeartPulse className="h-5 w-5" /> },
             ],
             color: "bg-rose-50 dark:bg-rose-900/10",
+            image: `${BASE_PATH}/images/healthcare_ai.png`,
             // borderColor: "border-rose-200 dark:border-rose-800",
         },
     ];
@@ -93,12 +98,17 @@ export default function ResearchPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex-1 w-full">
+                                <div className="flex-1 w-full flex justify-center">
                                     <div className={cn(
-                                        "aspect-square md:aspect-[4/3] rounded-[32px] w-full border border-gray-100 dark:border-gray-800 flex items-center justify-center bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black",
+                                        "aspect-square rounded-[32px] w-3/4 border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
                                         // area.borderColor
                                     )}>
-                                        <span className="text-secondary font-medium tracking-wide text-sm opacity-50">Visual Placeholder</span>
+                                        <Image
+                                            src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
+                                            alt={area.title}
+                                            fill
+                                            className="object-contain"
+                                        />
                                     </div>
                                 </div>
                             </div>
