@@ -40,7 +40,9 @@ const members: { role: string; people: Member[] }[] = [
     {
         role: "Masters Students",
         people: [
-            { name: "Park Ji Sung", email: "park@hlab.skku.edu", research: "생성형 AI" },
+            { name: "Wonseok Choi", research: "보행 분석 AI" },
+            { name: "Joonhyuk Choi", research: "스마트워커 제어 AI" },
+            { name: "Jinwoo Kim", research: "RAG LLM AI" },
         ]
     }
 ];
