@@ -102,7 +102,7 @@ export default function Home() {
           <div className="container-custom text-center">
             <h2 className="text-[1.8rem] md:text-[2.25rem] font-bold mb-4 tracking-tight">Interested in joining us?</h2>
             <Link href="/contact" className="inline-block bg-primary text-white px-5 py-2 rounded-full text-[1.05rem] font-medium hover:bg-primary/90 transition-transform active:scale-95">
-              Contact Us
+              문의
             </Link>
           </div>
         </section>

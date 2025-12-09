@@ -219,7 +219,7 @@ export default function ResearchPage() {
             id: "robot",
             title: "Robot Physical AI",
             icon: <Bot className="h-12 w-12 text-amber-500" />,
-            description: "Developing robotic intelligence capable of interacting seamlessly with the physical world.",
+            description: "동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.",
             topics: [
                 { name: "Robot Perception", icon: <Bot className="h-5 w-5" /> },
                 { name: "Generative Learning Models", icon: <Brain className="h-5 w-5" /> },
@@ -231,17 +231,16 @@ export default function ResearchPage() {
                     description: "Reinforcement Learning Based Whole-Body Control of a Mobile Manipulation Robot using Visual Object Tracking",
                     icon: <Bot className="h-5 w-5" />,
                     overview: {
-                        description: "본 연구는 딥러닝 기반의 실시간 물체 추적 및 모바일 조작 로봇의 전신 제어를 위한 강화학습 기법을 개발합니다.",
+                        description: "로봇의 모바일 베이스와 머니퓰레이터를 분리해서 순차적으로 제어하는 것은 비효율적이며 경우에 따라서는 작업 공간의 감소를 야기할 수 있음\n\n운동 모델의 한계와 온라인 장애물 회피의 부족을 극복하기 위해서 전신 제어(Whole-Body Control, WBC)를 위한 심층 강화 학습(Deep Reinforcement Learning, DRL) 전략을 제안함\n\nRL 접근법은 시뮬레이션에서 상태 최신 방법과 비교되며, 복잡한 환경에서 모바일 조작기에 검증된 RL 훈련 정책을 통해 빠른 임무 시간을 입증",
                         images: [
                             `${BASE_PATH}/images/robot_physical_ai.png`,
-                            // 추가 이미지 예시
                         ],
                         videos: [
                             // { url: "https://www.youtube.com/embed/VIDEO_ID", title: "개요 동영상" },
                         ],
                     },
                     content: {
-                        description: "YOLO와 DeepSORT 알고리즘을 결합하여 실시간으로 물체를 인식하고 추적하며, 강화학습을 통해 로봇의 전신 제어를 최적화합니다. 모바일 베이스와 조작 팔을 통합한 전신 제어 시스템을 구현합니다.",
+                        description: "비전 기반 인식 및 추적: 로봇에 탑재된 카메라와 센서를 이용하여 환경 내의 물체와 인간을 실시간으로 인식하고 추적\n\n강화학습을 통한 WBC 최적화: 로봇의 모든 부분을 통합적으로 제어하는 WBC 기술에 강화학습을 적용하여, 로봇이 다양한 작업을 더 효율적으로 수행할 수 있는 동작 전략을 스스로 학습\n\n자율적 작업 수행: Human Following, 물체 인식 및 Picking, Navigation, Manipulation 작업을 자율적으로 수행할 수 있도록 함\n\n비전 기술과 강화학습의 결합을 통해 로봇은 복잡한 환경에서도 높은 수준의 작업 수행 능력을 발휘하게함\n\nSim2real 기술 적용: 환경의 변화를 자동으로 무작위화하는 domain randomization 기술을 적용하여, 로봇이 더 넓은 범위의 환경 조건에 대해 학습하고 불확실성에 강인하게 적응할 수 있도록 함",
                         images: [
                             // `${BASE_PATH}/images/project1_content_img1.png`,
                         ],
@@ -249,8 +248,7 @@ export default function ResearchPage() {
                             // { url: "https://www.youtube.com/embed/VIDEO_ID", title: "내용 동영상" },
                         ],
                     },
-                    expectedEffects: "실제 환경에서 안정적으로 작동하는 모바일 조작 로봇 시스템을 구축하여 물류, 제조업 등 다양한 산업 분야에 적용할 수 있습니다.",
-                    // url: "https://example.com/project1", // 선택사항
+                    expectedEffects: "동적 변화에 적응할 수 있는 실시간, 반응적 제어를 가능하게 함\n\n로봇의 기지와 조작기를 일체로 관리하는 통합 제어 전략 적용을 통해 전체 임무 시간을 줄임\n\n시뮬레이션에서 훈련된 것을 실제 시스템에 직접 전송할 수 있음을 보여줌으로써 이론적 모델과 실제 사용성 사이의 격차를 해소",
                 },
                 {
                     title: "Sim2Real Transfer Learning",
@@ -288,7 +286,7 @@ export default function ResearchPage() {
             id: "ai",
             title: "Human Assistive AI",
             icon: <Brain className="h-12 w-12 text-primary" />,
-            description: "Advancing human-centric AI for assistive technologies and healthcare applications.",
+            description: "사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.",
             topics: [
                 { name: "Generative Models", icon: <Cpu className="h-5 w-5" /> },
                 { name: "Deep Learning Theory", icon: <Database className="h-5 w-5" /> },
@@ -331,7 +329,7 @@ export default function ResearchPage() {
             id: "healthcare",
             title: "Healthcare AI",
             icon: <HeartPulse className="h-12 w-12 text-rose-500" />,
-            description: "Transforming healthcare through data-driven insights and predictive modeling.",
+            description: "데이터 기반 예측 모델링으로 맞춤형 헬스케어 서비스를 혁신합니다.",
             topics: [
                 { name: "Activity Tracking Analysis", icon: <Microscope className="h-5 w-5" /> },
                 { name: "Clinical Data Mining", icon: <Database className="h-5 w-5" /> },
@@ -377,6 +375,18 @@ export default function ResearchPage() {
                     },
                     expectedEffects: "작업 환경과 건강 상태의 연관성을 파악하여 산업 현장의 안전과 건강을 개선하고, 질병 예방 프로그램 개발에 기여할 수 있습니다.",
                 },
+                {
+                    title: "장애아동 조기발견 모델개발 연구",
+                    description: "Development of early detection model for children with disabilities",
+                    icon: <HeartPulse className="h-5 w-5" />,
+                    overview: {
+                        description: "영유아의 장애위험요인을 조기에 발견하여 조기에 중재를 지원하는 것은 장애 위험요인을 제거하여 아동의 장애를 예방하는 효과와 함께 2차 장애발생을 예방하는 효과\n\n장애의 발견이 늦어질 경우 아동의 발달과업을 수행하지 못함으로 인해 발달의 지연 가중\n\n언어발달의 완성기인 6세가 지나 장애를 발견할 경우 언어발달의 최적기를 지나게 되어 언어적 의사소통의 어려움 지속",
+                    },
+                    content: {
+                        description: "아동의 장애 조기발견을 위해서는 조기에 부모가 인식하고 관련 지원을 요청해야만 하므로 검사 비용과 대상을 확대하는 정책만으로는 한계가 있음\n\n부모가 조기에 장애를 인식할 수 있도록 하는 홍보와 교육 등의 체계도 함께 이루어져야 하지만, 장기적으로는 부모가 조기에 인식하지 못하더라도 정부가 아동의 장애 위험요인을 찾아낼 수 있는 체계가 구축되어야 함\n\n영유아 건강검진을 통해 위험군 아동의 복지지원모델을 개발하여 발달이 지체된 아동의 장애 발생 예방을 위해 국민건강보험공단의 표본 코호트 DB, 영유아 검진 코호트 DB, 맞춤형 DB 등의 장애아동 진료명세서, 진료내역, 상병내역, 처방전교부상세, 영유아 건강검진, 영유아 구강검진 결과를 분석하여 장애아동의 진료 경로를 분석하여 장애의 조기발견 모델을 개발",
+                    },
+                    expectedEffects: "장애를 보일 가능성이 높은 아동들을 조기에 발견하여 적절한 대응을 해야함의 필요성을 인지하고 이를 해결하기 위한 방법으로 국민건강보험 데이터를 이용하는 연구를 진행\n\n빅데이터 분석에 적합한 기계학습 알고리즘을 이용하여 그 가능성을 검증\n\n다양한 요인에 의해 장애위험에 빠질 수 있는 아동들을 조기에 선별하여 적절한 치료를 받아 장애를 예방하거나 정도를 낮출 수 있고, 실제로 장애를 겪고 있지만 부모의 초기인식이 늦어지게 되어 장애 진단까지 오래 걸릴 수 있는 아동을 선별하여 적절한 치료 가능\n\n본 과제로 개발한 시스템을 활용하여 타 장애 및 교육대상군에 필요한 행동데이터 측정/분석 기술 확산 가능",
+                },
             ],
             color: "bg-rose-50 dark:bg-rose-900/10",
             image: `${BASE_PATH}/images/healthcare_ai.png`,
@@ -393,7 +403,7 @@ export default function ResearchPage() {
                     <div className="text-center max-w-2xl mx-auto mb-20 animate-fade-in-up">
                         <h1 className="h1-hero mb-6">Research Areas</h1>
                         <p className="text-body text-[21px] leading-relaxed">
-                            Our lab intersects cutting-edge AI with vital applications in healthcare and robotics.
+                            우리 연구실은 최신 AI 기술을 로보틱스와 헬스케어에 적용하여 혁신적인 연구를 진행합니다.
                         </p>
                     </div>
 

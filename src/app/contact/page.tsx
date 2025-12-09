@@ -31,6 +31,18 @@ export default function ContactPage() {
                                 <div className="space-y-8">
                                     <div className="flex items-start gap-5 group">
                                         <div className="shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110">
+                                            <Mail className="h-6 w-6 text-primary" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-[17px] mb-1">Email Us</h4>
+                                            <a href="mailto:helperlab@gmail.com" className="text-secondary hover:text-primary transition-colors font-medium">
+                                                helperlab@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-5 group">
+                                        <div className="shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110">
                                             <MapPin className="h-6 w-6 text-primary" />
                                         </div>
                                         <div>
@@ -40,18 +52,6 @@ export default function ContactPage() {
                                                 성균관대학교 제1공학관<br />
                                                 (우) 16419
                                             </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-5 group">
-                                        <div className="shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110">
-                                            <Mail className="h-6 w-6 text-primary" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[17px] mb-1">Email Us</h4>
-                                            <a href="mailto:helperlab@gmail.com" className="text-secondary hover:text-primary transition-colors font-medium">
-                                                helperlab@gmail.com
-                                            </a>
                                         </div>
                                     </div>
 
