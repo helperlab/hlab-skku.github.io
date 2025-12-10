@@ -1,0 +1,29 @@
+{
+  "title": "시각 물체 추적을 사용한 강화 학습 기반 모바일 조작 로봇의 전신 제어",
+  "description": "Reinforcement Learning Based Whole-Body Control of a Mobile Manipulation Robot using Visual Object Tracking",
+  "iconName": "Bot",
+  "overview": {
+    "description": "로봇의 모바일 베이스와 머니퓰레이터를 분리해서 순차적으로 제어하는 것은 비효율적이며 경우에 따라서는 작업 공간의 감소를 야기할 수 있음\n\n운동 모델의 한계와 온라인 장애물 회피의 부족을 극복하기 위해서 전신 제어(Whole-Body Control, WBC)를 위한 심층 강화 학습(Deep Reinforcement Learning, DRL) 전략을 제안함\n\nRL 접근법은 시뮬레이션에서 상태 최신 방법과 비교되며, 복잡한 환경에서 모바일 조작기에 검증된 RL 훈련 정책을 통해 빠른 임무 시간을 입증\n\n로봇의 모든 자유도(DoF)를 제어할 수 있는 DRL 기반 컨트롤러 설계\n\nVisual object tracking 기반 RL 적용\n\n기존 방법에 비해 향상된 효율성과 성능을 통해 빠른 임무 시간을 입증\n\n실제 로봇에 RL 훈련 정책을 검증하여 이론 모델과 실용성 사이의 격차를 해소하는 모델의 실용적 적용 가능성을 강조",
+
+    "images": [
+    ],
+    "videos": [
+      {
+        "url": "/projects/robot_ai/robot_wbc/G1_training.mp4",
+        "title": "G1 Training"
+      },
+      {
+        "url": "/projects/robot_ai/robot_wbc/robot_wbc.mp4",
+        "title": "Robot WBC"
+      }
+    ]
+  },
+  "content": {
+    "description": "비전 기반 인식 및 추적: 로봇에 탑재된 카메라와 센서를 이용하여 환경 내의 물체와 인간을 실시간으로 인식하고 추적\n\n강화학습을 통한 WBC 최적화: 로봇의 모든 부분을 통합적으로 제어하는 WBC 기술에 강화학습을 적용하여, 로봇이 다양한 작업을 더 효율적으로 수행할 수 있는 동작 전략을 스스로 학습\n\n자율적 작업 수행: Human Following, 물체 인식 및 Picking, Navigation, Manipulation 작업을 자율적으로 수행할 수 있도록 함\n\n비전 기술과 강화학습의 결합을 통해 로봇은 복잡한 환경에서도 높은 수준의 작업 수행 능력을 발휘하게함\n\nSim2real 기술 적용: 환경의 변화를 자동으로 무작위화하는 domain randomization 기술을 적용하여, 로봇이 더 넓은 범위의 환경 조건에 대해 학습하고 불확실성에 강인하게 적응할 수 있도록 함",
+    "images": [],
+    "videos": []
+  },
+  "expectedEffects": "동적 변화에 적응할 수 있는 실시간, 반응적 제어를 가능하게 함\n\n로봇의 기지와 조작기를 일체로 관리하는 통합 제어 전략 적용을 통해 전체 임무 시간을 줄임\n\n시뮬레이션에서 훈련된 것을 실제 시스템에 직접 전송할 수 있음을 보여줌으로써 이론적 모델과 실제 사용성 사이의 격차를 해소",
+  "url": null
+}
+

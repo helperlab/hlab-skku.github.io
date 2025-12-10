@@ -12,9 +12,8 @@
         { "name": "Sim2Real Transfer", "iconName": "Cpu" }
       ],
       "projectFiles": [
-        "projects/robot_ai/whole-body-control.json",
-        "projects/robot_ai/sim2real-transfer.json",
-        "projects/robot_ai/robot-manipulation.json"
+        "projects/robot_ai/robot_wbc.json",
+        "projects/robot_ai/smart_farm_ai.json"
       ],
       "color": "bg-amber-50 dark:bg-amber-900/10",
       "image": "/images/robot_physical_ai.png"
@@ -31,8 +30,9 @@
         { "name": "Multimodal Learning", "iconName": "Brain" }
       ],
       "projectFiles": [
-        "projects/assist_ai/rag-llm.json",
-        "projects/assist_ai/multimodal-learning.json"
+        "projects/assist_ai/elder_smart_walker.json",
+        "projects/assist_ai/stroke_recover_pattern.json",
+        "projects/assist_ai/stroke_rehab.json"
       ],
       "color": "bg-blue-50 dark:bg-blue-900/10",
       "image": "/images/human_assist_ai.png"
@@ -49,10 +49,11 @@
         { "name": "Personalized Medicine", "iconName": "HeartPulse" }
       ],
       "projectFiles": [
-        "projects/health_ai/gait-analysis.json",
-        "projects/health_ai/activity-tracking.json",
-        "projects/health_ai/clinical-data-mining.json",
-        "projects/health_ai/early-detection-children.json"
+        "projects/health_ai/constr_health.json",
+        "projects/health_ai/develop_disorder.json",
+        "projects/health_ai/early_detection.json",
+        "projects/health_ai/mild_cognitive.json",
+        "projects/health_ai/child_adhd.json"
       ],
       "color": "bg-rose-50 dark:bg-rose-900/10",
       "image": "/images/healthcare_ai.png"

@@ -10,27 +10,29 @@ import { BASE_PATH } from "@/lib/constants";
 import researchAreasData from "@/data/research-areas.json";
 
 // 프로젝트 파일들 import
-import wholeBodyControl from "@/data/projects/robot_ai/whole-body-control.json";
-import sim2realTransfer from "@/data/projects/robot_ai/sim2real-transfer.json";
-import robotManipulation from "@/data/projects/robot_ai/robot-manipulation.json";
-import ragLlm from "@/data/projects/assist_ai/rag-llm.json";
-import multimodalLearning from "@/data/projects/assist_ai/multimodal-learning.json";
-import gaitAnalysis from "@/data/projects/health_ai/gait-analysis.json";
-import activityTracking from "@/data/projects/health_ai/activity-tracking.json";
-import clinicalDataMining from "@/data/projects/health_ai/clinical-data-mining.json";
-import earlyDetectionChildren from "@/data/projects/health_ai/early-detection-children.json";
+import smartFarmAi from "@/data/projects/robot_ai/smart_farm_ai.json";
+import robotWbc from "@/data/projects/robot_ai/robot_wbc.json";
+import elderSmartWalker from "@/data/projects/assist_ai/elder_smart_walker.json";
+import strokeRehab from "@/data/projects/assist_ai/stroke_rehab.json";
+import strokeRecoverPattern from "@/data/projects/assist_ai/stroke_recover_pattern.json";
+import childAdhd from "@/data/projects/health_ai/child_adhd.json";
+import constrHealth from "@/data/projects/health_ai/constr_health.json";
+import developDisorder from "@/data/projects/health_ai/develop_disorder.json";
+import earlyDetection from "@/data/projects/health_ai/early_detection.json";
+import mildCognitive from "@/data/projects/health_ai/mild_cognitive.json";
 
 // 프로젝트 파일 매핑
 const projectMap: Record<string, any> = {
-    "projects/robot_ai/whole-body-control.json": wholeBodyControl,
-    "projects/robot_ai/sim2real-transfer.json": sim2realTransfer,
-    "projects/robot_ai/robot-manipulation.json": robotManipulation,
-    "projects/assist_ai/rag-llm.json": ragLlm,
-    "projects/assist_ai/multimodal-learning.json": multimodalLearning,
-    "projects/health_ai/gait-analysis.json": gaitAnalysis,
-    "projects/health_ai/activity-tracking.json": activityTracking,
-    "projects/health_ai/clinical-data-mining.json": clinicalDataMining,
-    "projects/health_ai/early-detection-children.json": earlyDetectionChildren,
+    "projects/robot_ai/smart_farm_ai.json": smartFarmAi,
+    "projects/robot_ai/robot_wbc.json": robotWbc,
+    "projects/assist_ai/elder_smart_walker.json": elderSmartWalker,
+    "projects/assist_ai/stroke_rehab.json": strokeRehab,
+    "projects/assist_ai/stroke_recover_pattern.json": strokeRecoverPattern,
+    "projects/health_ai/child_adhd.json": childAdhd,
+    "projects/health_ai/constr_health.json": constrHealth,
+    "projects/health_ai/develop_disorder.json": developDisorder,
+    "projects/health_ai/early_detection.json": earlyDetection,
+    "projects/health_ai/mild_cognitive.json": mildCognitive,
 };
 
 // 아이콘 매핑 함수
