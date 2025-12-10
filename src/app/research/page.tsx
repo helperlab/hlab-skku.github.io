@@ -546,7 +546,7 @@ export default function ResearchPage() {
                                     )}
                                 >
                                 {/* 왼쪽 컨테이너 (데스크톱에서만 사용) */}
-                                <div className="flex-1 flex flex-col space-y-6 order-1 md:order-none hidden md:flex">
+                                <div className="flex-[1.3] flex flex-col space-y-6 order-1 md:order-none hidden md:flex">
                                     {/* 제목/설명 */}
                                     <div className="space-y-6">
                                         <div className={cn("inline-flex p-5 rounded-3xl mb-4", area.color)}>
@@ -588,7 +588,7 @@ export default function ResearchPage() {
                                 {/* 이미지 */}
                                 <div className="flex-1 w-full flex justify-center order-2 -my-[19px] md:my-0">
                                     <div className={cn(
-                                        "aspect-square rounded-[32px] w-[52%] md:w-3/4 border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                        "aspect-square rounded-[32px] w-[52%] md:w-[65%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
                                         // area.borderColor
                                     )}>
                                         <Image
