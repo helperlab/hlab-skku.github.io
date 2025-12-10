@@ -166,17 +166,31 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                             {/* 개요 동영상 */}
                             {project.overview.videos && project.overview.videos.length > 0 && (
                                 <div className="flex flex-col items-center gap-4">
-                                    {project.overview.videos.map((video: any, vidIdx: number) => (
-                                        <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
-                                            <iframe
-                                                src={video.url}
-                                                title={video.title || `${project.title} - 개요 동영상 ${vidIdx + 1}`}
-                                                className="w-full h-full"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            />
-                                        </div>
-                                    ))}
+                                    {project.overview.videos.map((video: any, vidIdx: number) => {
+                                        const isYouTube = video.url.includes('youtube.com') || video.url.includes('youtu.be');
+                                        return (
+                                            <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
+                                                {isYouTube ? (
+                                                    <iframe
+                                                        src={video.url}
+                                                        title={video.title || `${project.title} - 개요 동영상 ${vidIdx + 1}`}
+                                                        className="w-full h-full"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowFullScreen
+                                                    />
+                                                ) : (
+                                                    <video
+                                                        src={video.url}
+                                                        controls
+                                                        className="w-full h-full"
+                                                        title={video.title || `${project.title} - 개요 동영상 ${vidIdx + 1}`}
+                                                    >
+                                                        브라우저가 비디오 태그를 지원하지 않습니다.
+                                                    </video>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </div>
@@ -211,17 +225,31 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                             {/* 내용 동영상 */}
                             {project.content.videos && project.content.videos.length > 0 && (
                                 <div className="flex flex-col items-center gap-4">
-                                    {project.content.videos.map((video: any, vidIdx: number) => (
-                                        <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
-                                            <iframe
-                                                src={video.url}
-                                                title={video.title || `${project.title} - 내용 동영상 ${vidIdx + 1}`}
-                                                className="w-full h-full"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            />
-                                        </div>
-                                    ))}
+                                    {project.content.videos.map((video: any, vidIdx: number) => {
+                                        const isYouTube = video.url.includes('youtube.com') || video.url.includes('youtu.be');
+                                        return (
+                                            <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
+                                                {isYouTube ? (
+                                                    <iframe
+                                                        src={video.url}
+                                                        title={video.title || `${project.title} - 내용 동영상 ${vidIdx + 1}`}
+                                                        className="w-full h-full"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowFullScreen
+                                                    />
+                                                ) : (
+                                                    <video
+                                                        src={video.url}
+                                                        controls
+                                                        className="w-full h-full"
+                                                        title={video.title || `${project.title} - 내용 동영상 ${vidIdx + 1}`}
+                                                    >
+                                                        브라우저가 비디오 태그를 지원하지 않습니다.
+                                                    </video>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </div>
@@ -277,12 +305,18 @@ export default function ResearchPage() {
             overview: project.overview ? {
                 description: project.overview.description,
                 images: (project.overview.images || []).map((img: string) => img.startsWith('/') ? `${BASE_PATH}${img}` : img),
-                videos: project.overview.videos || [],
+                videos: (project.overview.videos || []).map((video: any) => ({
+                    ...video,
+                    url: video.url.startsWith('http') ? video.url : (video.url.startsWith('/') ? `${BASE_PATH}${video.url}` : video.url)
+                })),
             } : undefined,
             content: project.content ? {
                 description: project.content.description,
                 images: (project.content.images || []).map((img: string) => img.startsWith('/') ? `${BASE_PATH}${img}` : img),
-                videos: project.content.videos || [],
+                videos: (project.content.videos || []).map((video: any) => ({
+                    ...video,
+                    url: video.url.startsWith('http') ? video.url : (video.url.startsWith('/') ? `${BASE_PATH}${video.url}` : video.url)
+                })),
             } : undefined,
             expectedEffects: project.expectedEffects,
             url: project.url || undefined,
