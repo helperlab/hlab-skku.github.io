@@ -1,0 +1,20 @@
+{
+  "title": "보행 분석 AI",
+  "description": "모션 캡처 데이터를 활용한 병리적 보행 패턴 분석 및 분류",
+  "iconName": "Microscope",
+  "overview": {
+    "description": "3D 모션 캡처 시스템을 통해 수집한 보행 데이터를 딥러닝으로 분석하여 정상 보행과 병리적 보행을 자동으로 분류합니다.",
+    "images": [
+      "/images/healthcare_ai.png"
+    ],
+    "videos": []
+  },
+  "content": {
+    "description": "파킨슨병, 뇌졸중 등 다양한 신경계 질환의 보행 패턴을 학습하여 조기 진단을 지원하는 AI 모델을 개발합니다.",
+    "images": [],
+    "videos": []
+  },
+  "expectedEffects": "비침습적이고 저렴한 보행 분석을 통해 신경계 질환의 조기 발견 및 모니터링이 가능하여 환자의 삶의 질을 향상시킬 수 있습니다.",
+  "url": null
+}
+

@@ -3,10 +3,51 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Brain, HeartPulse, Bot, Microscope, Cpu, Database, ChevronDown, ChevronUp, Play, X } from "lucide-react";
+import { Brain, HeartPulse, Bot, Microscope, Cpu, Database, ChevronDown, ChevronUp, Play, X, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { BASE_PATH } from "@/lib/constants";
+import researchAreasData from "@/data/research-areas.json";
+
+// 프로젝트 파일들 import
+import wholeBodyControl from "@/data/projects/robot_ai/whole-body-control.json";
+import sim2realTransfer from "@/data/projects/robot_ai/sim2real-transfer.json";
+import robotManipulation from "@/data/projects/robot_ai/robot-manipulation.json";
+import ragLlm from "@/data/projects/assist_ai/rag-llm.json";
+import multimodalLearning from "@/data/projects/assist_ai/multimodal-learning.json";
+import gaitAnalysis from "@/data/projects/health_ai/gait-analysis.json";
+import activityTracking from "@/data/projects/health_ai/activity-tracking.json";
+import clinicalDataMining from "@/data/projects/health_ai/clinical-data-mining.json";
+import earlyDetectionChildren from "@/data/projects/health_ai/early-detection-children.json";
+
+// 프로젝트 파일 매핑
+const projectMap: Record<string, any> = {
+    "projects/robot_ai/whole-body-control.json": wholeBodyControl,
+    "projects/robot_ai/sim2real-transfer.json": sim2realTransfer,
+    "projects/robot_ai/robot-manipulation.json": robotManipulation,
+    "projects/assist_ai/rag-llm.json": ragLlm,
+    "projects/assist_ai/multimodal-learning.json": multimodalLearning,
+    "projects/health_ai/gait-analysis.json": gaitAnalysis,
+    "projects/health_ai/activity-tracking.json": activityTracking,
+    "projects/health_ai/clinical-data-mining.json": clinicalDataMining,
+    "projects/health_ai/early-detection-children.json": earlyDetectionChildren,
+};
+
+// 아이콘 매핑 함수
+const iconMap: Record<string, LucideIcon> = {
+    Bot,
+    Brain,
+    HeartPulse,
+    Microscope,
+    Cpu,
+    Database,
+};
+
+function getIconComponent(iconName: string, size: string = "h-5 w-5", color?: string) {
+    const IconComponent = iconMap[iconName] || Bot;
+    const colorClass = color ? `text-${color}` : "text-primary";
+    return <IconComponent className={`${size} ${colorClass}`} />;
+}
 
 // ProjectCard 컴포넌트
 function ProjectCard({ project }: { project: any }) {
@@ -214,6 +255,42 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
 }
 
 export default function ResearchPage() {
+    // JSON 데이터를 컴포넌트에서 사용 가능한 형태로 변환
+    const researchAreas = researchAreasData.researchAreas.map((area) => ({
+        id: area.id,
+        title: area.title,
+        icon: getIconComponent(area.iconName, "h-12 w-12", area.iconColor),
+        description: area.description,
+        topics: area.topics.map((topic) => ({
+            name: topic.name,
+            icon: getIconComponent(topic.iconName, "h-5 w-5"),
+        })),
+        projects: area.projectFiles.map((projectFile: string) => {
+            const project = projectMap[projectFile];
+            if (!project) return null;
+            return {
+            title: project.title,
+            description: project.description,
+            icon: getIconComponent(project.iconName, "h-5 w-5"),
+            overview: project.overview ? {
+                description: project.overview.description,
+                images: (project.overview.images || []).map((img: string) => img.startsWith('/') ? `${BASE_PATH}${img}` : img),
+                videos: project.overview.videos || [],
+            } : undefined,
+            content: project.content ? {
+                description: project.content.description,
+                images: (project.content.images || []).map((img: string) => img.startsWith('/') ? `${BASE_PATH}${img}` : img),
+                videos: project.content.videos || [],
+            } : undefined,
+            expectedEffects: project.expectedEffects,
+            url: project.url || undefined,
+        };
+        }).filter((p: any) => p !== null),
+        color: area.color,
+        image: area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image,
+    }));
+
+    /* 기존 하드코딩된 데이터 (참고용으로 주석 처리)
     const researchAreas = [
         {
             id: "robot",
@@ -393,6 +470,7 @@ export default function ResearchPage() {
             // borderColor: "border-rose-200 dark:border-rose-800",
         },
     ];
+    */
 
     return (
         <div className="min-h-screen flex flex-col bg-background">

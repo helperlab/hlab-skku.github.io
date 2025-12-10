@@ -48,14 +48,14 @@ export default function Home() {
               {/* Card 3: Robotics */}
               <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
-                  <Link href="/research#robot" className="hover:text-primary transition-colors">
+                  <Link href="/research#robot_ai" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Robot Physical AI</h3>
                   </Link>
                   <p className="text-sm md:text-body max-w-md line-clamp-2">동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.</p>
                 </div>
                 <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-amber-50/50 to-transparent dark:from-amber-900/10 pointer-events-none" />
                 <div className="mt-auto pt-4 md:pt-8 flex items-end justify-between relative z-10">
-                  <Link href="/research#robot" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                  <Link href="/research#robot_ai" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   <Bot className="h-16 w-16 md:h-24 md:w-24 text-amber-500/20 absolute bottom-0 right-0 group-hover:rotate-12 transition-transform duration-700 ease-out" />
@@ -65,14 +65,14 @@ export default function Home() {
               {/* Card 1: AI (Large Span) */}
               <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
-                  <Link href="/research#ai" className="hover:text-primary transition-colors">
+                  <Link href="/research#assist_ai" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Human Assistive AI</h3>
                   </Link>
                   <p className="text-sm md:text-body max-w-md line-clamp-2">사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.</p>
                 </div>
                 <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none" />
                 <div className="mt-auto pt-4 md:pt-8 flex items-end justify-between relative z-10">
-                  <Link href="/research#ai" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                  <Link href="/research#assist_ai" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   <Brain className="h-16 w-16 md:h-24 md:w-24 text-blue-500/20 absolute bottom-0 right-0 group-hover:scale-110 transition-transform duration-700 ease-out" />
@@ -82,14 +82,14 @@ export default function Home() {
               {/* Card 2: Healthcare (Tall) */}
               <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
-                  <Link href="/research#healthcare" className="hover:text-primary transition-colors">
+                  <Link href="/research#health_ai" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Healthcare AI</h3>
                   </Link>
                   <p className="text-sm md:text-body max-w-md line-clamp-2">데이터 기반 예측 모델링으로 맞춤형 진단을 혁신합니다.</p>
                 </div>
                 <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-rose-50/50 to-transparent dark:from-rose-900/10 pointer-events-none" />
                 <div className="mt-auto pt-4 md:pt-8 flex items-end justify-between relative z-10">
-                  <Link href="/research#healthcare" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                  <Link href="/research#health_ai" className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   <HeartPulse className="h-16 w-16 md:h-24 md:w-24 text-rose-500/20 absolute bottom-0 right-0 group-hover:scale-110 transition-transform duration-700 ease-out" />

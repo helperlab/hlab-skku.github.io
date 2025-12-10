@@ -1,0 +1,214 @@
+{
+  "researchAreas": [
+    {
+      "id": "robot",
+      "title": "Robot Physical AI",
+      "iconName": "Bot",
+      "iconColor": "amber-500",
+      "description": "동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.",
+      "topics": [
+        { "name": "Robot Perception", "iconName": "Bot" },
+        { "name": "Generative Learning Models", "iconName": "Brain" },
+        { "name": "Sim2Real Transfer", "iconName": "Cpu" }
+      ],
+      "projects": [
+        {
+          "title": "시각 물체 추적을 사용한 강화 학습 기반 모바일 조작 로봇의 전신 제어",
+          "description": "Reinforcement Learning Based Whole-Body Control of a Mobile Manipulation Robot using Visual Object Tracking",
+          "iconName": "Bot",
+          "overview": {
+            "description": "로봇의 모바일 베이스와 머니퓰레이터를 분리해서 순차적으로 제어하는 것은 비효율적이며 경우에 따라서는 작업 공간의 감소를 야기할 수 있음\n\n운동 모델의 한계와 온라인 장애물 회피의 부족을 극복하기 위해서 전신 제어(Whole-Body Control, WBC)를 위한 심층 강화 학습(Deep Reinforcement Learning, DRL) 전략을 제안함\n\nRL 접근법은 시뮬레이션에서 상태 최신 방법과 비교되며, 복잡한 환경에서 모바일 조작기에 검증된 RL 훈련 정책을 통해 빠른 임무 시간을 입증",
+            "images": [
+              "/images/robot_physical_ai.png"
+            ],
+            "videos": []
+          },
+          "content": {
+            "description": "비전 기반 인식 및 추적: 로봇에 탑재된 카메라와 센서를 이용하여 환경 내의 물체와 인간을 실시간으로 인식하고 추적\n\n강화학습을 통한 WBC 최적화: 로봇의 모든 부분을 통합적으로 제어하는 WBC 기술에 강화학습을 적용하여, 로봇이 다양한 작업을 더 효율적으로 수행할 수 있는 동작 전략을 스스로 학습\n\n자율적 작업 수행: Human Following, 물체 인식 및 Picking, Navigation, Manipulation 작업을 자율적으로 수행할 수 있도록 함\n\n비전 기술과 강화학습의 결합을 통해 로봇은 복잡한 환경에서도 높은 수준의 작업 수행 능력을 발휘하게함\n\nSim2real 기술 적용: 환경의 변화를 자동으로 무작위화하는 domain randomization 기술을 적용하여, 로봇이 더 넓은 범위의 환경 조건에 대해 학습하고 불확실성에 강인하게 적응할 수 있도록 함",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "동적 변화에 적응할 수 있는 실시간, 반응적 제어를 가능하게 함\n\n로봇의 기지와 조작기를 일체로 관리하는 통합 제어 전략 적용을 통해 전체 임무 시간을 줄임\n\n시뮬레이션에서 훈련된 것을 실제 시스템에 직접 전송할 수 있음을 보여줌으로써 이론적 모델과 실제 사용성 사이의 격차를 해소",
+          "url": null
+        },
+        {
+          "title": "Sim2Real Transfer Learning",
+          "description": "시뮬레이션 환경에서 학습한 모델을 실제 환경에 적용하는 연구",
+          "iconName": "Cpu",
+          "overview": {
+            "description": "시뮬레이션 환경에서 학습한 모델을 실제 로봇 환경에 적용하기 위한 도메인 적응 기법을 연구합니다.",
+            "images": [
+              "/images/robot_physical_ai.png"
+            ],
+            "videos": []
+          },
+          "content": {
+            "description": "Domain Randomization과 Adversarial Training을 활용하여 시뮬레이션과 실제 환경 간의 차이를 최소화합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "시뮬레이션에서 학습한 모델을 실제 환경에 효율적으로 전이하여 로봇 학습의 비용과 시간을 크게 절감할 수 있습니다.",
+          "url": null
+        },
+        {
+          "title": "Robot Manipulation",
+          "description": "로봇 팔을 이용한 물체 조작 및 학습 연구",
+          "iconName": "Bot",
+          "overview": {
+            "description": "강화학습을 활용한 로봇 팔의 물체 조작 연구입니다.",
+            "images": [],
+            "videos": []
+          },
+          "content": {
+            "description": "다양한 형태와 무게의 물체를 안정적으로 파지하고 이동시키는 능력을 학습합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "유연하고 적응적인 로봇 조작 시스템을 구축하여 제조업, 물류 등 다양한 분야에 활용할 수 있습니다.",
+          "url": null
+        }
+      ],
+      "color": "bg-amber-50 dark:bg-amber-900/10",
+      "image": "/images/robot_physical_ai.png"
+    },
+    {
+      "id": "ai",
+      "title": "Human Assistive AI",
+      "iconName": "Brain",
+      "iconColor": "primary",
+      "description": "사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.",
+      "topics": [
+        { "name": "Generative Models", "iconName": "Cpu" },
+        { "name": "Deep Learning Theory", "iconName": "Database" },
+        { "name": "Multimodal Learning", "iconName": "Brain" }
+      ],
+      "projects": [
+        {
+          "title": "RAG LLM AI",
+          "description": "검색 증강 생성 모델을 활용한 지식 기반 대화 시스템",
+          "iconName": "Brain",
+          "overview": {
+            "description": "RAG(Retrieval-Augmented Generation) 기법을 활용하여 대규모 언어 모델의 지식 한계를 극복하고, 외부 지식베이스를 검색하여 정확한 답변을 생성하는 시스템을 개발합니다.",
+            "images": [
+              "/images/human_assist_ai.png"
+            ],
+            "videos": []
+          },
+          "content": {
+            "description": "벡터 데이터베이스를 활용한 효율적인 지식 검색 및 생성 파이프라인을 구축하고, 다양한 도메인에 특화된 RAG 시스템을 개발합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "정확하고 신뢰할 수 있는 AI 대화 시스템을 구축하여 교육, 고객 서비스, 의료 상담 등 다양한 분야에 활용할 수 있습니다.",
+          "url": null
+        },
+        {
+          "title": "Multimodal Learning",
+          "description": "텍스트, 이미지, 음성 등 다양한 모달리티를 통합한 학습 연구",
+          "iconName": "Database",
+          "overview": {
+            "description": "다양한 모달리티의 데이터를 통합하여 학습하는 멀티모달 학습 연구입니다.",
+            "images": [],
+            "videos": []
+          },
+          "content": {
+            "description": "Vision-Language 모델을 개발하여 이미지와 텍스트를 동시에 이해하고 처리할 수 있는 능력을 향상시킵니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "다양한 형태의 정보를 통합적으로 이해하는 AI 시스템을 구축하여 더욱 자연스럽고 정확한 인간-AI 상호작용을 가능하게 합니다.",
+          "url": null
+        }
+      ],
+      "color": "bg-blue-50 dark:bg-blue-900/10",
+      "image": "/images/human_assist_ai.png"
+    },
+    {
+      "id": "healthcare",
+      "title": "Healthcare AI",
+      "iconName": "HeartPulse",
+      "iconColor": "rose-500",
+      "description": "데이터 기반 예측 모델링으로 맞춤형 헬스케어 서비스를 혁신합니다.",
+      "topics": [
+        { "name": "Activity Tracking Analysis", "iconName": "Microscope" },
+        { "name": "Clinical Data Mining", "iconName": "Database" },
+        { "name": "Personalized Medicine", "iconName": "HeartPulse" }
+      ],
+      "projects": [
+        {
+          "title": "보행 분석 AI",
+          "description": "모션 캡처 데이터를 활용한 병리적 보행 패턴 분석 및 분류",
+          "iconName": "Microscope",
+          "overview": {
+            "description": "3D 모션 캡처 시스템을 통해 수집한 보행 데이터를 딥러닝으로 분석하여 정상 보행과 병리적 보행을 자동으로 분류합니다.",
+            "images": [
+              "/images/healthcare_ai.png"
+            ],
+            "videos": []
+          },
+          "content": {
+            "description": "파킨슨병, 뇌졸중 등 다양한 신경계 질환의 보행 패턴을 학습하여 조기 진단을 지원하는 AI 모델을 개발합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "비침습적이고 저렴한 보행 분석을 통해 신경계 질환의 조기 발견 및 모니터링이 가능하여 환자의 삶의 질을 향상시킬 수 있습니다.",
+          "url": null
+        },
+        {
+          "title": "Activity Tracking Analysis",
+          "description": "활동 추적 데이터를 이용한 노인 우울 및 불안 선별 연구",
+          "iconName": "HeartPulse",
+          "overview": {
+            "description": "스마트워치와 활동 추적기를 통해 수집한 일상 활동 데이터를 분석하여 노인의 우울 및 불안 증상을 조기 발견합니다.",
+            "images": [],
+            "videos": []
+          },
+          "content": {
+            "description": "머신러닝 모델을 통해 활동 패턴의 변화를 감지하고 건강 상태를 평가합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "일상 활동 데이터만으로 정신 건강 상태를 모니터링하여 조기 개입이 가능하며, 노인 건강 관리의 효율성을 크게 향상시킬 수 있습니다.",
+          "url": null
+        },
+        {
+          "title": "Clinical Data Mining",
+          "description": "건설-제조 현장 작업자의 복합 질환 선별을 위한 데이터 마이닝",
+          "iconName": "Database",
+          "overview": {
+            "description": "건설 및 제조 현장 작업자의 건강 검진 데이터를 분석하여 근골격계 질환, 호흡기 질환 등 복합 질환의 위험 요인을 파악합니다.",
+            "images": [],
+            "videos": []
+          },
+          "content": {
+            "description": "데이터 마이닝 기법을 활용하여 질환 간 상관관계를 분석하고 예측 모델을 구축합니다.",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "작업 환경과 건강 상태의 연관성을 파악하여 산업 현장의 안전과 건강을 개선하고, 질병 예방 프로그램 개발에 기여할 수 있습니다.",
+          "url": null
+        },
+        {
+          "title": "장애아동 조기발견 모델개발 연구",
+          "description": "Development of early detection model for children with disabilities",
+          "iconName": "HeartPulse",
+          "overview": {
+            "description": "영유아의 장애위험요인을 조기에 발견하여 조기에 중재를 지원하는 것은 장애 위험요인을 제거하여 아동의 장애를 예방하는 효과와 함께 2차 장애발생을 예방하는 효과\n\n장애의 발견이 늦어질 경우 아동의 발달과업을 수행하지 못함으로 인해 발달의 지연 가중\n\n언어발달의 완성기인 6세가 지나 장애를 발견할 경우 언어발달의 최적기를 지나게 되어 언어적 의사소통의 어려움 지속",
+            "images": [],
+            "videos": []
+          },
+          "content": {
+            "description": "아동의 장애 조기발견을 위해서는 조기에 부모가 인식하고 관련 지원을 요청해야만 하므로 검사 비용과 대상을 확대하는 정책만으로는 한계가 있음\n\n부모가 조기에 장애를 인식할 수 있도록 하는 홍보와 교육 등의 체계도 함께 이루어져야 하지만, 장기적으로는 부모가 조기에 인식하지 못하더라도 정부가 아동의 장애 위험요인을 찾아낼 수 있는 체계가 구축되어야 함\n\n영유아 건강검진을 통해 위험군 아동의 복지지원모델을 개발하여 발달이 지체된 아동의 장애 발생 예방을 위해 국민건강보험공단의 표본 코호트 DB, 영유아 검진 코호트 DB, 맞춤형 DB 등의 장애아동 진료명세서, 진료내역, 상병내역, 처방전교부상세, 영유아 건강검진, 영유아 구강검진 결과를 분석하여 장애아동의 진료 경로를 분석하여 장애의 조기발견 모델을 개발",
+            "images": [],
+            "videos": []
+          },
+          "expectedEffects": "장애를 보일 가능성이 높은 아동들을 조기에 발견하여 적절한 대응을 해야함의 필요성을 인지하고 이를 해결하기 위한 방법으로 국민건강보험 데이터를 이용하는 연구를 진행\n\n빅데이터 분석에 적합한 기계학습 알고리즘을 이용하여 그 가능성을 검증\n\n다양한 요인에 의해 장애위험에 빠질 수 있는 아동들을 조기에 선별하여 적절한 치료를 받아 장애를 예방하거나 정도를 낮출 수 있고, 실제로 장애를 겪고 있지만 부모의 초기인식이 늦어지게 되어 장애 진단까지 오래 걸릴 수 있는 아동을 선별하여 적절한 치료 가능\n\n본 과제로 개발한 시스템을 활용하여 타 장애 및 교육대상군에 필요한 행동데이터 측정/분석 기술 확산 가능",
+          "url": null
+        }
+      ],
+      "color": "bg-rose-50 dark:bg-rose-900/10",
+      "image": "/images/healthcare_ai.png"
+    }
+  ]
+}
+

@@ -1,0 +1,62 @@
+{
+  "researchAreas": [
+    {
+      "id": "robot_ai",
+      "title": "Robot Physical AI",
+      "iconName": "Bot",
+      "iconColor": "amber-500",
+      "description": "동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.",
+      "topics": [
+        { "name": "Robot Perception", "iconName": "Bot" },
+        { "name": "Generative Learning Models", "iconName": "Brain" },
+        { "name": "Sim2Real Transfer", "iconName": "Cpu" }
+      ],
+      "projectFiles": [
+        "projects/robot_ai/whole-body-control.json",
+        "projects/robot_ai/sim2real-transfer.json",
+        "projects/robot_ai/robot-manipulation.json"
+      ],
+      "color": "bg-amber-50 dark:bg-amber-900/10",
+      "image": "/images/robot_physical_ai.png"
+    },
+    {
+      "id": "assist_ai",
+      "title": "Human Assistive AI",
+      "iconName": "Brain",
+      "iconColor": "primary",
+      "description": "사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.",
+      "topics": [
+        { "name": "Generative Models", "iconName": "Cpu" },
+        { "name": "Deep Learning Theory", "iconName": "Database" },
+        { "name": "Multimodal Learning", "iconName": "Brain" }
+      ],
+      "projectFiles": [
+        "projects/assist_ai/rag-llm.json",
+        "projects/assist_ai/multimodal-learning.json"
+      ],
+      "color": "bg-blue-50 dark:bg-blue-900/10",
+      "image": "/images/human_assist_ai.png"
+    },
+    {
+      "id": "health_ai",
+      "title": "Healthcare AI",
+      "iconName": "HeartPulse",
+      "iconColor": "rose-500",
+      "description": "데이터 기반 예측 모델링으로 맞춤형 헬스케어 서비스를 혁신합니다.",
+      "topics": [
+        { "name": "Activity Tracking Analysis", "iconName": "Microscope" },
+        { "name": "Clinical Data Mining", "iconName": "Database" },
+        { "name": "Personalized Medicine", "iconName": "HeartPulse" }
+      ],
+      "projectFiles": [
+        "projects/health_ai/gait-analysis.json",
+        "projects/health_ai/activity-tracking.json",
+        "projects/health_ai/clinical-data-mining.json",
+        "projects/health_ai/early-detection-children.json"
+      ],
+      "color": "bg-rose-50 dark:bg-rose-900/10",
+      "image": "/images/healthcare_ai.png"
+    }
+  ]
+}
+

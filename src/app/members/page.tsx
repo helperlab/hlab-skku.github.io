@@ -64,40 +64,46 @@ export default function MembersPage() {
                     </div>
 
                     <div className="space-y-16">
-                        {members.map((group) => (
-                            <div key={group.role} className="flex flex-col items-center">
-                                <h2 className="text-[32px] font-bold mb-8 border-b border-gray-100 dark:border-gray-800 pb-2 tracking-tight w-fit px-10">{group.role}</h2>
-                                <div className="flex flex-col items-center gap-5">
-                                    {group.people.map((person) => (
-                                        <div key={person.name} className="group flex flex-col items-center text-center p-6 rounded-[32px] hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-300 w-full max-w-md">
-                                            <div className="mb-4 relative">
-                                                {person.image ? (
-                                                    <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
-                                                        {/* Image placeholder if needed, or next/image */}
-                                                    </div>
-                                                ) : (
-                                                    <div className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 mb-2">
-                                                        <User className="w-12 h-12" />
-                                                    </div>
-                                                )}
+                        {members.map((group) => {
+                            const isStudents = group.role === "Ph.D. Students" || group.role === "Masters Students";
+                            return (
+                                <div key={group.role} className="flex flex-col items-center">
+                                    <h2 className="text-[32px] font-bold mb-8 border-b border-gray-100 dark:border-gray-800 pb-2 tracking-tight w-fit px-10">{group.role}</h2>
+                                    <div className={isStudents 
+                                        ? "grid grid-cols-1 md:grid-cols-2 gap-x-0.5 gap-y-2.5 w-full max-w-4xl"
+                                        : "flex flex-col items-center gap-5"
+                                    }>
+                                        {group.people.map((person) => (
+                                            <div key={person.name} className={`group flex flex-col items-center text-center p-6 rounded-[32px] hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-300 ${isStudents ? 'w-full' : 'w-full max-w-md'}`}>
+                                                <div className="mb-4 relative">
+                                                    {person.image ? (
+                                                        <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
+                                                            {/* Image placeholder if needed, or next/image */}
+                                                        </div>
+                                                    ) : (
+                                                        <div className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 mb-2">
+                                                            <User className="w-12 h-12" />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <h3 className="text-[24px] font-semibold text-foreground mb-2">
+                                                    {person.url ? (
+                                                        <a href={person.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                                            {person.name}
+                                                        </a>
+                                                    ) : (
+                                                        person.name
+                                                    )}
+                                                </h3>
+                                                {person.title && <p className="text-primary text-[17px] font-medium mb-1">{person.title}</p>}
+                                                {person.research && <p className="text-secondary text-[17px] mb-2">{person.research}</p>}
+                                                {person.bio && <p className="text-secondary text-[15px] mt-4 max-w-sm leading-relaxed">{person.bio}</p>}
                                             </div>
-                                            <h3 className="text-[24px] font-semibold text-foreground mb-2">
-                                                {person.url ? (
-                                                    <a href={person.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                                                        {person.name}
-                                                    </a>
-                                                ) : (
-                                                    person.name
-                                                )}
-                                            </h3>
-                                            {person.title && <p className="text-primary text-[17px] font-medium mb-1">{person.title}</p>}
-                                            {person.research && <p className="text-secondary text-[17px] mb-2">{person.research}</p>}
-                                            {person.bio && <p className="text-secondary text-[15px] mt-4 max-w-sm leading-relaxed">{person.bio}</p>}
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </main>
