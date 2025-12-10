@@ -3,7 +3,7 @@ import { BASE_PATH } from "@/lib/constants";
 
 export function Footer() {
     return (
-        <footer className="bg-slate-50 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+        <footer className="bg-slate-50 dark:bg-slate-900 py-8 md:py-12 border-t border-slate-200 dark:border-slate-800">
             <div className="container-custom">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="flex flex-col items-start gap-4 mb-4 md:mb-0">
@@ -13,7 +13,7 @@ export function Footer() {
                                 alt="H-Lab"
                                 width={360}
                                 height={120}
-                                className="h-24 w-auto object-contain"
+                                className="h-[67px] md:h-24 w-auto object-contain"
                             />
                             <div className="h-20 w-px bg-slate-300 dark:bg-slate-700 mx-1 md:mx-2" />
                             <Image
@@ -25,7 +25,7 @@ export function Footer() {
                             />
                         </div>
                     </div>
-                    <div className="text-sm text-muted-foreground text-center md:text-right">
+                    <div className="text-xs md:text-sm text-muted-foreground text-center md:text-right">
                         <p>&copy; {new Date().getFullYear()} H-Lab. All rights reserved.</p>
                         <p className="mt-1">경기도 수원시 장안구 서부로 2066 성균관대학교</p>
                     </div>

@@ -409,23 +409,28 @@ export default function ResearchPage() {
 
                     <div className="space-y-32">
                         {researchAreas.map((area, index) => (
-                            <div
-                                key={area.id}
-                                id={area.id}
-                                className={cn(
-                                    "flex flex-col md:flex-row gap-16 items-center scroll-mt-32",
-                                    index % 2 === 1 ? "md:flex-row-reverse" : ""
-                                )}
-                            >
-                                <div className="flex-1 space-y-6">
-                                    <div className={cn("inline-flex p-5 rounded-3xl mb-4", area.color)}>
-                                        {area.icon}
+                            <div key={area.id}>
+                                <div
+                                    id={area.id}
+                                    className={cn(
+                                        "flex flex-col md:flex-row gap-16 items-center scroll-mt-32",
+                                        index % 2 === 1 ? "md:flex-row-reverse" : ""
+                                    )}
+                                >
+                                {/* 왼쪽 컨테이너 (데스크톱에서만 사용) */}
+                                <div className="flex-1 flex flex-col space-y-6 order-1 md:order-none hidden md:flex">
+                                    {/* 제목/설명 */}
+                                    <div className="space-y-6">
+                                        <div className={cn("inline-flex p-5 rounded-3xl mb-4", area.color)}>
+                                            {area.icon}
+                                        </div>
+                                        <h2 className="h2-title">{area.title}</h2>
+                                        <p className="text-body text-lg">
+                                            {area.description}
+                                        </p>
                                     </div>
-                                    <h2 className="h2-title">{area.title}</h2>
-                                    <p className="text-body text-lg">
-                                        {area.description}
-                                    </p>
 
+                                    {/* Projects */}
                                     <div className="space-y-6 pt-6">
                                         {/* Research Projects */}
                                         {area.projects && area.projects.length > 0 && (
@@ -441,9 +446,21 @@ export default function ResearchPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex-1 w-full flex justify-center">
+                                {/* 모바일: 제목/설명 */}
+                                <div className="flex-1 space-y-6 order-1 md:hidden">
+                                    <div className={cn("inline-flex p-5 rounded-3xl mb-4", area.color)}>
+                                        {area.icon}
+                                    </div>
+                                    <h2 className="h2-title">{area.title}</h2>
+                                    <p className="text-body text-lg">
+                                        {area.description}
+                                    </p>
+                                </div>
+
+                                {/* 이미지 */}
+                                <div className="flex-1 w-full flex justify-center order-2 -my-[19px] md:my-0">
                                     <div className={cn(
-                                        "aspect-square rounded-[32px] w-3/4 border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                        "aspect-square rounded-[32px] w-[52%] md:w-3/4 border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
                                         // area.borderColor
                                     )}>
                                         <Image
@@ -454,6 +471,27 @@ export default function ResearchPage() {
                                         />
                                     </div>
                                 </div>
+
+                                {/* 모바일: Projects */}
+                                <div className="flex-1 space-y-6 order-3 md:hidden">
+                                    <div className="space-y-6 pt-6">
+                                        {/* Research Projects */}
+                                        {area.projects && area.projects.length > 0 && (
+                                            <div>
+                                                <h3 className="text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Research Projects</h3>
+                                                <div className="space-y-4">
+                                                    {area.projects.map((project, idx) => (
+                                                        <ProjectCard key={idx} project={project} />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                </div>
+                                {index < researchAreas.length - 1 && (
+                                    <div className="mt-[82px] pt-[41px] border-t border-gray-200 dark:border-gray-800"></div>
+                                )}
                             </div>
                         ))}
                     </div>

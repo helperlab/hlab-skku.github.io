@@ -46,7 +46,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-6 items-center">
               {/* Card 3: Robotics */}
-              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[121px] md:h-[242px]">
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
                   <Link href="/research#robot" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Robot Physical AI</h3>
@@ -63,7 +63,7 @@ export default function Home() {
               </div>
 
               {/* Card 1: AI (Large Span) */}
-              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[121px] md:h-[242px]">
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
                   <Link href="/research#ai" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Human Assistive AI</h3>
@@ -80,7 +80,7 @@ export default function Home() {
               </div>
 
               {/* Card 2: Healthcare (Tall) */}
-              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] h-[121px] md:h-[242px]">
+              <div className="group relative overflow-hidden rounded-[32px] bg-white dark:bg-[#111] p-6 md:p-8 flex flex-col justify-between transition-transform duration-500 hover:scale-[1.01] shadow-2xl shadow-black/5 hover:shadow-black/10 w-full max-w-[780px] min-h-[160px] md:h-[242px]">
                 <div className="z-10">
                   <Link href="/research#healthcare" className="hover:text-primary transition-colors">
                     <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">Healthcare AI</h3>
