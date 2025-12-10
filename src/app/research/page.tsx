@@ -588,7 +588,7 @@ export default function ResearchPage() {
                                 {/* 이미지 */}
                                 <div className="flex-1 w-full flex justify-center order-2 -my-[19px] md:my-0">
                                     <div className={cn(
-                                        "aspect-square rounded-[32px] w-[52%] md:w-[65%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                        "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
                                         // area.borderColor
                                     )}>
                                         <Image
