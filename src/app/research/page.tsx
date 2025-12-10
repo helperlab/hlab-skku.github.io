@@ -168,11 +168,14 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                 <div className="flex flex-col items-center gap-4">
                                     {project.overview.videos.map((video: any, vidIdx: number) => {
                                         const isYouTube = video.url.includes('youtube.com') || video.url.includes('youtu.be');
+                                        const youtubeUrl = isYouTube && !video.url.includes('autoplay') 
+                                            ? `${video.url}${video.url.includes('?') ? '&' : '?'}autoplay=1&mute=1` 
+                                            : video.url;
                                         return (
                                             <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
                                                 {isYouTube ? (
                                                     <iframe
-                                                        src={video.url}
+                                                        src={youtubeUrl}
                                                         title={video.title || `${project.title} - 개요 동영상 ${vidIdx + 1}`}
                                                         className="w-full h-full"
                                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -182,6 +185,10 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                                     <video
                                                         src={video.url}
                                                         controls
+                                                        autoPlay
+                                                        muted
+                                                        loop
+                                                        playsInline
                                                         className="w-full h-full"
                                                         title={video.title || `${project.title} - 개요 동영상 ${vidIdx + 1}`}
                                                     >
@@ -227,11 +234,14 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                 <div className="flex flex-col items-center gap-4">
                                     {project.content.videos.map((video: any, vidIdx: number) => {
                                         const isYouTube = video.url.includes('youtube.com') || video.url.includes('youtu.be');
+                                        const youtubeUrl = isYouTube && !video.url.includes('autoplay') 
+                                            ? `${video.url}${video.url.includes('?') ? '&' : '?'}autoplay=1&mute=1` 
+                                            : video.url;
                                         return (
                                             <div key={vidIdx} className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-[#1a1a1a]">
                                                 {isYouTube ? (
                                                     <iframe
-                                                        src={video.url}
+                                                        src={youtubeUrl}
                                                         title={video.title || `${project.title} - 내용 동영상 ${vidIdx + 1}`}
                                                         className="w-full h-full"
                                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -241,6 +251,10 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                                     <video
                                                         src={video.url}
                                                         controls
+                                                        autoPlay
+                                                        muted
+                                                        loop
+                                                        playsInline
                                                         className="w-full h-full"
                                                         title={video.title || `${project.title} - 내용 동영상 ${vidIdx + 1}`}
                                                     >
