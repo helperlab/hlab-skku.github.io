@@ -16,7 +16,8 @@
         "projects/robot_ai/smart_farm_ai.json"
       ],
       "color": "bg-amber-50 dark:bg-amber-900/10",
-      "image": "/images/robot_physical_ai.png"
+      "image": "/images/robot_physical_ai.png",
+      "video": "https://www.youtube.com/embed/73hM5ZXuYq0?autoplay=1&mute=1&loop=1&playlist=73hM5ZXuYq0"
     },
     {
       "id": "assist_ai",

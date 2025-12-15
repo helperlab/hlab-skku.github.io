@@ -337,7 +337,8 @@ export default function ResearchPage() {
         };
         }).filter((p: any) => p !== null),
         color: area.color,
-        image: area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image,
+        image: area.image ? (area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image) : undefined,
+        video: area.video || undefined,
     }));
 
     /* 기존 하드코딩된 데이터 (참고용으로 주석 처리)
@@ -585,19 +586,48 @@ export default function ResearchPage() {
                                     </p>
                                 </div>
 
-                                {/* 이미지 */}
-                                <div className="flex-1 w-full flex justify-center order-2 -my-[19px] md:my-0">
-                                    <div className={cn(
-                                        "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
-                                        // area.borderColor
-                                    )}>
-                                        <Image
-                                            src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
-                                            alt={area.title}
-                                            fill
-                                            className="object-contain"
-                                        />
-                                    </div>
+                                {/* 이미지 또는 비디오 */}
+                                <div className="flex-1 w-full flex flex-col items-center gap-4 order-2 -my-[19px] md:my-0">
+                                    {area.video ? (
+                                        <>
+                                            {/* 이미지 */}
+                                            {area.image && (
+                                                <div className={cn(
+                                                    "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                                )}>
+                                                    <Image
+                                                        src={area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image}
+                                                        alt={area.title}
+                                                        fill
+                                                        className="object-contain"
+                                                    />
+                                                </div>
+                                            )}
+                                            {/* YouTube 영상 */}
+                                            <div className={cn(
+                                                "aspect-video rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                            )}>
+                                                <iframe
+                                                    src={area.video}
+                                                    title={area.title}
+                                                    className="w-full h-full"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                />
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className={cn(
+                                            "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                        )}>
+                                            <Image
+                                                src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
+                                                alt={area.title}
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* 모바일: Projects */}
