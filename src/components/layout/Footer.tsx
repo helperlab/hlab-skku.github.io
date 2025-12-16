@@ -9,7 +9,7 @@ export function Footer() {
                     <div className="flex flex-col items-start gap-4 mb-4 md:mb-0">
                         <div className="flex items-center gap-[6px] md:gap-[9px]">
                             <Image
-                                src={`${BASE_PATH}/images/hlab_logo_clear_transp.png`}
+                                src={`${BASE_PATH}/images/heli_no_backg.png`}
                                 alt="H-Lab"
                                 width={360}
                                 height={120}

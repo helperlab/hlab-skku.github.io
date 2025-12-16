@@ -40,7 +40,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center space-x-2 z-50 group">
                     <div className="relative h-[58px] md:h-24 w-auto">
                         <Image
-                            src={`${BASE_PATH}/images/hlab_logo_clear_transp.png`}
+                            src={`${BASE_PATH}/images/heli_no_backg.png`}
                             alt="H-Lab Logo"
                             width={360}
                             height={120}
