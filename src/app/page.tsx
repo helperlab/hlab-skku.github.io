@@ -27,14 +27,19 @@ export default function Home() {
 
             {/* Subtle Hero Visual */}
             {/* Subtle Hero Visual */}
-            <div className="relative mt-16 w-full max-w-[780px] h-[240px] md:h-[480px] bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
-              <Image
-                src={`${BASE_PATH}/images/hero_bg_wom_v2.png`}
-                alt="H-Lab Hero Visual"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                priority
-              />
+            <div className="mt-16 w-full max-w-[624px]">
+              <div className="relative w-full h-[192px] md:h-[384px] bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+                <Image
+                  src={`${BASE_PATH}/images/hero_bg_wom_v2.png`}
+                  alt="H-Lab Hero Visual"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
+                />
+              </div>
+              <p className="text-xs text-secondary mt-2 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
+                일러스트레이션 예시
+              </p>
             </div>
           </div>
         </section>
@@ -108,7 +113,7 @@ export default function Home() {
               문의하기
             </Link>
             <div className="mt-12 flex justify-center">
-              <div className="relative w-full max-w-[215px] aspect-square bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <div className="relative w-full max-w-[172px] aspect-square bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
                 <Image
                   src={`${BASE_PATH}/images/heli_pr_back.png`}
                   alt="Heli PR Back"

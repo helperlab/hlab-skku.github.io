@@ -592,16 +592,19 @@ export default function ResearchPage() {
                                         <>
                                             {/* 이미지 */}
                                             {area.image && (
-                                                <div className={cn(
-                                                    "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
-                                                )}>
-                                                    <Image
-                                                        src={area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image}
-                                                        alt={area.title}
-                                                        fill
-                                                        className="object-cover"
-                                                    />
-                                                </div>
+                                                <>
+                                                    <div className={cn(
+                                                        "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                                    )}>
+                                                        <Image
+                                                            src={area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image}
+                                                            alt={area.title}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                    </div>
+                                                    <p className="text-xs text-secondary">일러스트레이션 예시</p>
+                                                </>
                                             )}
                                             {/* YouTube 영상 */}
                                             <div className={cn(
@@ -615,22 +618,26 @@ export default function ResearchPage() {
                                                     allowFullScreen
                                                 />
                                             </div>
+                                            <p className="text-xs text-secondary">실제 학습 시뮬레이션 장면</p>
                                         </>
                                     ) : (
-                                        <div className={cn(
-                                            "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
-                                        )}>
-                                            <Image
-                                                src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
-                                                alt={area.title}
-                                                fill
-                                                className={cn(
-                                                    "object-cover",
-                                                    area.id === "assist_ai" && "scale-150"
-                                                )}
-                                                style={area.id === "assist_ai" ? { objectPosition: '80% center' } : undefined}
-                                            />
-                                        </div>
+                                        <>
+                                            <div className={cn(
+                                                "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
+                                            )}>
+                                                <Image
+                                                    src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
+                                                    alt={area.title}
+                                                    fill
+                                                    className={cn(
+                                                        "object-cover",
+                                                        area.id === "assist_ai" && "scale-150"
+                                                    )}
+                                                    style={area.id === "assist_ai" ? { objectPosition: '60% center' } : undefined}
+                                                />
+                                            </div>
+                                            <p className="text-xs text-secondary">일러스트레이션 예시</p>
+                                        </>
                                     )}
                                 </div>
 
