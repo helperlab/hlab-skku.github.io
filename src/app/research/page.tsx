@@ -156,7 +156,7 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                                 src={img}
                                                 alt={`${project.title} - 개요 이미지 ${imgIdx + 1}`}
                                                 fill
-                                                className="object-contain"
+                                                className="object-cover"
                                             />
                                         </div>
                                     ))}
@@ -222,7 +222,7 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                                 src={img}
                                                 alt={`${project.title} - 내용 이미지 ${imgIdx + 1}`}
                                                 fill
-                                                className="object-contain"
+                                                className="object-cover"
                                             />
                                         </div>
                                     ))}
@@ -599,7 +599,7 @@ export default function ResearchPage() {
                                                         src={area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image}
                                                         alt={area.title}
                                                         fill
-                                                        className="object-contain"
+                                                        className="object-cover"
                                                     />
                                                 </div>
                                             )}
@@ -624,7 +624,12 @@ export default function ResearchPage() {
                                                 src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
                                                 alt={area.title}
                                                 fill
-                                                className="object-contain"
+                                                className={cn(
+                                                    "object-cover",
+                                                    area.id === "assist_ai" ? "scale-125" : 
+                                                    area.id === "health_ai" ? "scale-110" : "object-center"
+                                                )}
+                                                style={area.id === "assist_ai" ? { objectPosition: '80% center' } : undefined}
                                             />
                                         </div>
                                     )}
