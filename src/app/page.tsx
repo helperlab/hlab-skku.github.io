@@ -108,7 +108,7 @@ export default function Home() {
               문의하기
             </Link>
             <div className="mt-12 flex justify-center">
-              <div className="relative w-full max-w-[299px] aspect-square bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <div className="relative w-full max-w-[215px] aspect-square bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
                 <Image
                   src={`${BASE_PATH}/images/heli_pr_back.png`}
                   alt="Heli PR Back"
