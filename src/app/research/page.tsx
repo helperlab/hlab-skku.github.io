@@ -624,12 +624,7 @@ export default function ResearchPage() {
                                                 src={area.image || `${BASE_PATH}/images/hero_bg_wom_v2.png`}
                                                 alt={area.title}
                                                 fill
-                                                className={cn(
-                                                    "object-cover",
-                                                    area.id === "assist_ai" ? "scale-125" : 
-                                                    area.id === "health_ai" ? "scale-110" : "object-center"
-                                                )}
-                                                style={area.id === "assist_ai" ? { objectPosition: '80% center' } : undefined}
+                                                className="object-cover"
                                             />
                                         </div>
                                     )}

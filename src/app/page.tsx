@@ -107,6 +107,16 @@ export default function Home() {
             <Link href="/contact" className="inline-block bg-primary text-white px-5 py-2 rounded-full text-[1.05rem] font-medium hover:bg-primary/90 transition-transform active:scale-95">
               문의하기
             </Link>
+            <div className="mt-12 flex justify-center">
+              <div className="relative w-full max-w-[299px] aspect-square bg-gradient-to-tr from-gray-100 to-gray-50 dark:from-[#111] dark:to-black rounded-3xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+                <Image
+                  src={`${BASE_PATH}/images/heli_pr_back.png`}
+                  alt="Heli PR Back"
+                  fill
+                  className="object-contain transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
