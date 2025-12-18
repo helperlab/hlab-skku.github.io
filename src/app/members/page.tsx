@@ -1,6 +1,8 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { User, Mail, GraduationCap } from "lucide-react";
+import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 
 export const metadata = {
@@ -27,7 +29,7 @@ const members: { role: string; people: Member[] }[] = [
                 title: "Professor",
                 bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 AI, 로보틱스, 헬스케어입니다.",
                 email: "mtchoi@skku.edu",
-                image: null,
+                image: `${BASE_PATH}/images/mtc_유화.png`,
                 url: "https://professor.skku.edu/researcher/professorList.do?mode=view&perId=LZStrBwOQlgzg6gdgkgDwIYCkDCAhATAUzABhgHEBOHALQEEBeaoA%20&jojikCode2=7101DM&jojikCode1=3163&categoryId=G"
             }
         ]
@@ -75,10 +77,16 @@ export default function MembersPage() {
                                     }>
                                         {group.people.map((person) => (
                                             <div key={person.name} className={`group flex flex-col items-center text-center p-6 rounded-[32px] hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-300 ${isStudents ? 'w-full' : 'w-full max-w-md'}`}>
-                                                <div className="mb-4 relative">
+                                                <div className="mb-4 relative -mt-2">
                                                     {person.image ? (
-                                                        <div className="w-32 h-32 rounded-full overflow-hidden mb-2">
-                                                            {/* Image placeholder if needed, or next/image */}
+                                                        <div className="w-32 h-32 rounded-full overflow-hidden mb-2 relative">
+                                                            <Image
+                                                                src={person.image}
+                                                                alt={person.name}
+                                                                fill
+                                                                className="object-cover"
+                                                                style={{ objectPosition: 'center 16%' }}
+                                                            />
                                                         </div>
                                                     ) : (
                                                         <div className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 mb-2">
