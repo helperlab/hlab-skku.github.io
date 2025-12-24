@@ -597,7 +597,7 @@ export default function ResearchPage() {
                                                         "aspect-square rounded-[32px] w-[52%] md:w-[85%] border border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-[#111] shadow-2xl shadow-gray-200/50 dark:shadow-black relative",
                                                     )}>
                                                         <Image
-                                                            src={area.image.startsWith('/') ? `${BASE_PATH}${area.image}` : area.image}
+                                                            src={area.image.replace(BASE_PATH, '')}
                                                             alt={area.title}
                                                             fill
                                                             className="object-cover"
