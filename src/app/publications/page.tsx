@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { getPublications } from "@/lib/orcid";
 import Link from "next/link";
-import { ExternalLink, BookOpen } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export const metadata = {
     title: "Publications | H-Lab",
@@ -11,6 +11,16 @@ export const metadata = {
 
 export default async function PublicationsPage() {
     const publications = await getPublications();
+
+    // 연도별 그룹핑
+    const grouped = publications.reduce<Record<string, typeof publications>>((acc, pub) => {
+        const year = pub.year;
+        if (!acc[year]) acc[year] = [];
+        acc[year].push(pub);
+        return acc;
+    }, {});
+
+    const years = Object.keys(grouped).sort((a, b) => parseInt(b) - parseInt(a));
 
     return (
         <div className="min-h-screen flex flex-col bg-background">
@@ -25,7 +35,7 @@ export default async function PublicationsPage() {
                         </p>
                     </div>
 
-                    <div className="max-w-4xl mx-auto space-y-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                    <div className="max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                         {publications.length === 0 ? (
                             <div className="text-center py-20 bg-gray-50 dark:bg-[#111] rounded-3xl">
                                 <p className="text-secondary">게시물을 불러오는 중이거나 데이터가 없습니다.</p>
@@ -38,48 +48,52 @@ export default async function PublicationsPage() {
                                 </Link>
                             </div>
                         ) : (
-                            publications.map((pub) => (
-                                <div
-                                    key={pub.id}
-                                    className="group bg-white dark:bg-[#111] p-6 rounded-[24px] shadow-sm hover:shadow-md transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-800"
-                                >
-                                    <div className="flex items-start justify-between gap-4">
-                                        <div className="space-y-3">
-                                            <div className="flex items-center gap-3 text-sm font-medium">
-                                                <span className="text-primary bg-primary/10 px-3 py-1 rounded-full">
-                                                    {pub.year}
-                                                </span>
-                                            </div>
-
-                                            <h3 className="text-sm md:text-base font-bold leading-tight group-hover:text-primary transition-colors mb-2">
-                                                {pub.url ? (
-                                                    <a href={pub.url} target="_blank" rel="noopener noreferrer">
-                                                        {pub.title}
-                                                    </a>
-                                                ) : (
-                                                    pub.title
-                                                )}
-                                            </h3>
-
-                                            {/* Authors and Journal */}
-                                            <p className="text-sm text-secondary line-clamp-2">
-                                                {pub.authors} <span className="font-semibold text-foreground/80"> — {pub.journal}</span>
-                                            </p>
+                            <div className="space-y-12">
+                                {years.map((year) => (
+                                    <div key={year}>
+                                        <div className="flex items-center gap-4 mb-6">
+                                            <h2 className="text-3xl font-bold text-foreground">{year}</h2>
+                                            <div className="flex-1 h-px bg-gray-200 dark:bg-gray-800" />
                                         </div>
+                                        <div className="space-y-4">
+                                            {grouped[year].map((pub) => (
+                                                <div
+                                                    key={pub.id}
+                                                    className="group bg-white dark:bg-[#111] p-6 rounded-[24px] shadow-sm hover:shadow-md transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-800"
+                                                >
+                                                    <div className="flex items-start justify-between gap-4">
+                                                        <div className="space-y-2">
+                                                            <h3 className="text-sm md:text-base font-bold leading-tight group-hover:text-primary transition-colors">
+                                                                {pub.url ? (
+                                                                    <a href={pub.url} target="_blank" rel="noopener noreferrer">
+                                                                        {pub.title}
+                                                                    </a>
+                                                                ) : (
+                                                                    pub.title
+                                                                )}
+                                                            </h3>
+                                                            <p className="text-sm text-secondary line-clamp-2">
+                                                                {pub.authors} <span className="font-semibold text-foreground/80"> — {pub.journal}</span>
+                                                            </p>
+                                                        </div>
 
-                                        {pub.url && (
-                                            <a
-                                                href={pub.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="shrink-0 p-2 text-gray-400 hover:text-primary transition-colors"
-                                            >
-                                                <ExternalLink className="h-5 w-5" />
-                                            </a>
-                                        )}
+                                                        {pub.url && (
+                                                            <a
+                                                                href={pub.url}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="shrink-0 p-2 text-gray-400 hover:text-primary transition-colors"
+                                                            >
+                                                                <ExternalLink className="h-5 w-5" />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))
+                                ))}
+                            </div>
                         )}
                     </div>
                 </div>

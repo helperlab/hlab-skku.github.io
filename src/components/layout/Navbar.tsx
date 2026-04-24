@@ -3,14 +3,18 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { BASE_PATH } from "@/lib/constants";
+import { useTheme } from "@/components/ThemeProvider";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const { resolved, setTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,12 +24,33 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // 모바일 메뉴 열릴 때 배경 스크롤 방지
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
+    const toggleTheme = () => {
+        setTheme(resolved === "dark" ? "light" : "dark");
+    };
+
     const navLinks = [
         { name: "Research", href: "/research" },
         { name: "Members", href: "/members" },
         { name: "Publications", href: "/publications" },
         { name: "Contact", href: "/contact" },
     ];
+
+    const isActive = (href: string) => {
+        if (href === "/") return pathname === "/";
+        return pathname.startsWith(href);
+    };
 
     return (
         <nav
@@ -56,20 +81,49 @@ export function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-[16px] font-normal text-foreground/80 hover:text-primary transition-colors duration-300 tracking-wide"
+                            className={cn(
+                                "text-[16px] font-normal transition-colors duration-300 tracking-wide",
+                                isActive(link.href)
+                                    ? "text-primary font-medium"
+                                    : "text-foreground/80 hover:text-primary"
+                            )}
                         >
                             {link.name}
                         </Link>
                     ))}
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle theme"
+                    >
+                        {resolved === "dark" ? (
+                            <Sun className="h-5 w-5 text-foreground/80" />
+                        ) : (
+                            <Moon className="h-5 w-5 text-foreground/80" />
+                        )}
+                    </button>
                 </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden z-50 text-foreground"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-                </button>
+                {/* Mobile: Theme Toggle + Menu Toggle */}
+                <div className="flex items-center gap-2 md:hidden z-50">
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle theme"
+                    >
+                        {resolved === "dark" ? (
+                            <Sun className="h-5 w-5 text-foreground" />
+                        ) : (
+                            <Moon className="h-5 w-5 text-foreground" />
+                        )}
+                    </button>
+                    <button
+                        className="text-foreground"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+                    </button>
+                </div>
 
                 {/* Mobile Menu Overlay */}
                 <AnimatePresence>
@@ -84,7 +138,12 @@ export function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-3xl font-medium text-foreground hover:text-primary transition-colors border-b border-gray-100 dark:border-gray-800 w-full pb-4"
+                                    className={cn(
+                                        "text-3xl font-medium transition-colors border-b border-gray-100 dark:border-gray-800 w-full pb-4",
+                                        isActive(link.href)
+                                            ? "text-primary"
+                                            : "text-foreground hover:text-primary"
+                                    )}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -10,30 +12,18 @@
 
 :root {
   --background: #ffffff;
-  /* Pure white */
   --foreground: #1d1d1f;
-  /* Apple's near-black */
   --primary: #0071e3;
-  /* Apple Blue */
   --secondary: #86868b;
-  /* Apple Gray */
   --accent: #f56300;
-  /* Apple Orange/Amber */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    /* Pure black */
-    --foreground: #f5f5f7;
-    /* Apple's off-white */
-    --primary: #2997ff;
-    /* Apple Dark Mode Blue */
-    --secondary: #86868b;
-    /* Apple Gray */
-    --accent: #ff9f0a;
-    /* Apple Dark Mode Orange */
-  }
+.dark {
+  --background: #000000;
+  --foreground: #c5c5c7;
+  --primary: #2997ff;
+  --secondary: #86868b;
+  --accent: #ff9f0a;
 }
 
 body {
@@ -87,10 +77,12 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .glass-nav {
-      background-color: rgba(0, 0, 0, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+  .dark img:not([data-no-dim]) {
+    filter: brightness(0.7);
+  }
+
+  .dark .glass-nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 }
