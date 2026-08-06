@@ -37,16 +37,16 @@ const members: { role: string; people: Member[] }[] = [
     {
         role: "Ph.D. Students",
         people: [
-            { name: "Hyungtai Kim", email: "gudxo1229@skku.edu", research: "로봇 피지컬 AI" },
             { name: "Tae-Rim Lee", email: "lee@hlab.skku.edu", research: "로봇 피지컬 AI" },
         ]
     },
     {
         role: "Masters Students",
         people: [
-            { name: "Wonseok Choi", research: "보행 분석 AI" },
-            { name: "Joonhyuk Choi", research: "스마트워커 제어 AI" },
             { name: "Jinwoo Kim", research: "RAG LLM AI" },
+            { name: "Joonhyuk Choi", research: "스마트워커 제어 AI" },
+            { name: "Donghyun Kim", research: "로봇 피지컬 AI" },
+            { name: "Jaehyung Jang", research: "RAG LLM AI" },
         ]
     }
 ];
