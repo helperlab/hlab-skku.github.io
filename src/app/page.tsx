@@ -13,21 +13,21 @@ export default function Home() {
       href: "/research#robot_ai",
       description: "동적 환경에서 디지털 지능과 물리적 상호작용 간의 격차를 해소합니다.",
       gradient: "from-amber-50/50 to-transparent dark:from-amber-900/10",
-      image: `${BASE_PATH}/images/robot_physical_ai.png`,
+      image: `${BASE_PATH}/images/thumbs/robot_physical_ai.jpg`,
     },
     {
       title: "Human Assistive AI",
       href: "/research#assist_ai",
       description: "사용자의 의도와 움직임을 이해하고 안전하게 도움을 제공하는 상호작용 기술을 개발합니다.",
       gradient: "from-blue-50/50 to-transparent dark:from-blue-900/10",
-      image: `${BASE_PATH}/images/human_assist_ai.png`,
+      image: `${BASE_PATH}/images/thumbs/human_assist_ai.jpg`,
     },
     {
       title: "Healthcare AI",
       href: "/research#health_ai",
       description: "데이터 기반 예측 모델링으로 맞춤형 진단을 혁신합니다.",
       gradient: "from-rose-50/50 to-transparent dark:from-rose-900/10",
-      image: `${BASE_PATH}/images/healthcare_ai.png`,
+      image: `${BASE_PATH}/images/thumbs/healthcare_ai.jpg`,
     },
   ];
 
@@ -88,7 +88,7 @@ export default function Home() {
                     </div>
                   </div>
                   {/* 이미지 */}
-                  <div className="relative w-full md:w-[240px] h-[160px] md:h-[200px] rounded-2xl overflow-hidden mt-4 md:mt-0 md:ml-6 shrink-0">
+                  <div className="relative w-full md:w-[300px] aspect-[3/2] rounded-2xl overflow-hidden mt-4 md:mt-0 md:ml-6 shrink-0">
                     <Image
                       src={area.image}
                       alt={area.title}
