@@ -43,10 +43,10 @@ const members: { role: string; people: Member[] }[] = [
     {
         role: "Masters Students",
         people: [
-            { name: "Jinwoo Kim", research: "RAG LLM AI" },
+            { name: "Jinwoo Kim", research: "지식체계 기반 생성형 AI" },
             { name: "Joonhyuk Choi", research: "스마트워커 제어 AI" },
             { name: "Donghyun Kim", research: "로봇 피지컬 AI" },
-            { name: "Jaehyung Jang", research: "RAG LLM AI" },
+            { name: "Jaehyung Jang", research: "지식체계 기반 생성형 AI" },
             { name: "Yejun Kim", research: "신체 모션 분석 AI" },
             { name: "Yuhyeon Kim", research: "로봇 피지컬 AI" },
             { name: "Taehyeon Kim", research: "신체 모션 분석 AI" },
