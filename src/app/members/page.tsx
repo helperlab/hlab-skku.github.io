@@ -17,6 +17,7 @@ interface Member {
     bio?: string;
     research?: string;
     image?: string | null;
+    imagePosition?: string;
     url?: string;
 }
 
@@ -48,7 +49,7 @@ const members: { role: string; people: Member[] }[] = [
             { name: "Donghyun Kim", research: "로봇 피지컬 AI" },
             { name: "Jaehyung Jang", research: "지식체계 기반 생성형 AI", image: `${BASE_PATH}/images/jaehyung.png` },
             { name: "Yejun Kim", research: "신체 모션 분석 AI", image: `${BASE_PATH}/images/yejun.png` },
-            { name: "Yuhyeon Kim", research: "로봇 피지컬 AI" },
+            { name: "Yoohyun Kim", research: "로봇 피지컬 AI", image: `${BASE_PATH}/images/yoohyun.jpeg`, imagePosition: "center 55%" },
             { name: "Taehyeon Kim", research: "신체 모션 분석 AI" },
         ]
     }
@@ -89,7 +90,7 @@ export default function MembersPage() {
                                                                 alt={person.name}
                                                                 fill
                                                                 className="object-cover"
-                                                                style={{ objectPosition: 'center 16%' }}
+                                                                style={{ objectPosition: person.imagePosition ?? 'center 16%' }}
                                                             />
                                                         </div>
                                                     ) : (
