@@ -28,7 +28,7 @@ const members: { role: string; people: Member[] }[] = [
             {
                 name: "Mun-Taek Choi",
                 title: "Professor",
-                bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 로보틱스, 피지컬 AI, 헬스케어입니다.",
+                bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 로보틱스, 피지컬 AI, 헬스케어 AI입니다.",
                 email: "mtchoi@skku.edu",
                 image: `${BASE_PATH}/images/mtc_유화.png`,
                 url: "https://professor.skku.edu/researcher/professorList.do?mode=view&perId=LZStrBwOQlgzg6gdgkgDwIYCkDCAhATAUzABhgHEBOHALQEEBeaoA%20&jojikCode2=7101DM&jojikCode1=3163&categoryId=G"
@@ -110,7 +110,7 @@ export default function MembersPage() {
                                                 </h3>
                                                 {person.title && <p className="text-primary text-[17px] font-medium mb-1">{person.title}</p>}
                                                 {person.research && <p className="text-secondary text-[17px] mb-2">{person.research}</p>}
-                                                {person.bio && <p className="text-secondary text-[15px] mt-4 max-w-sm leading-relaxed">{person.bio}</p>}
+                                                {person.bio && <p className="text-secondary text-[15px] mt-4 max-w-sm leading-relaxed break-keep">{person.bio}</p>}
                                             </div>
                                         ))}
                                     </div>
