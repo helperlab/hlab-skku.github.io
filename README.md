@@ -54,7 +54,7 @@ npm run build
 
 ### 파일 구조
 
-```
+```text
 src/data/
 ├── research-areas.json          # 연구 영역 기본 정보
 └── projects/
@@ -81,6 +81,7 @@ public/
 ```
 
 **파일 보관:**
+
 - JSON: `src/data/projects/{areaId}/프로젝트명.json`
 - 이미지: `public/projects/{areaId}/프로젝트명/` (JSON 파일명과 동일)
 
@@ -178,6 +179,7 @@ public/
    - 폴더: `public/projects/robot_ai/whole-body-control/`
 
 2. **경로 작성**: `/projects/{areaId}/{projectName}/파일명`
+
    ```json
    {
      "overview": {
@@ -187,6 +189,7 @@ public/
    ```
 
 3. **동영상**: YouTube URL 사용 권장
+
    ```json
    {
      "videos": [{"url": "https://www.youtube.com/embed/VIDEO_ID", "title": "제목"}]

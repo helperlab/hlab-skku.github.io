@@ -27,7 +27,7 @@ const members: { role: string; people: Member[] }[] = [
             {
                 name: "Mun-Taek Choi",
                 title: "Professor",
-                bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 AI, 로보틱스, 헬스케어입니다.",
+                bio: "H-Lab의 연구 책임자입니다. 주 연구 분야는 로보틱스, 피지컬 AI, 헬스케어입니다.",
                 email: "mtchoi@skku.edu",
                 image: `${BASE_PATH}/images/mtc_유화.png`,
                 url: "https://professor.skku.edu/researcher/professorList.do?mode=view&perId=LZStrBwOQlgzg6gdgkgDwIYCkDCAhATAUzABhgHEBOHALQEEBeaoA%20&jojikCode2=7101DM&jojikCode1=3163&categoryId=G"
@@ -47,6 +47,9 @@ const members: { role: string; people: Member[] }[] = [
             { name: "Joonhyuk Choi", research: "스마트워커 제어 AI" },
             { name: "Donghyun Kim", research: "로봇 피지컬 AI" },
             { name: "Jaehyung Jang", research: "RAG LLM AI" },
+            { name: "Yejun Kim", research: "신체 모션 분석 AI" },
+            { name: "Yuhyeon Kim", research: "로봇 피지컬 AI" },
+            { name: "Taehyeon Kim", research: "신체 모션 분석 AI" },
         ]
     }
 ];
@@ -68,15 +71,16 @@ export default function MembersPage() {
                     <div className="space-y-16">
                         {members.map((group) => {
                             const isStudents = group.role === "Ph.D. Students" || group.role === "Masters Students";
+                            const useGrid = isStudents && group.people.length >= 2;
                             return (
                                 <div key={group.role} className="flex flex-col items-center">
                                     <h2 className="text-[32px] font-bold mb-8 border-b border-gray-100 dark:border-gray-800 pb-2 tracking-tight w-fit px-10">{group.role}</h2>
-                                    <div className={isStudents 
+                                    <div className={useGrid
                                         ? "grid grid-cols-1 md:grid-cols-2 gap-x-0.5 gap-y-2.5 w-full max-w-4xl"
                                         : "flex flex-col items-center gap-5"
                                     }>
                                         {group.people.map((person) => (
-                                            <div key={person.name} className={`group flex flex-col items-center text-center p-6 rounded-[32px] hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-300 ${isStudents ? 'w-full' : 'w-full max-w-md'}`}>
+                                            <div key={person.name} className={`group flex flex-col items-center text-center p-6 rounded-[32px] hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-300 ${useGrid ? 'w-full' : 'w-full max-w-md'}`}>
                                                 <div className="mb-4 relative -mt-2">
                                                     {person.image ? (
                                                         <div className="w-32 h-32 rounded-full overflow-hidden mb-2 relative">
