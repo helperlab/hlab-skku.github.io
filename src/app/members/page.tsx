@@ -37,7 +37,7 @@ const members: { role: string; people: Member[] }[] = [
     {
         role: "Ph.D. Students",
         people: [
-            { name: "Tae-Rim Lee", email: "lee@hlab.skku.edu", research: "로봇 피지컬 AI" },
+            { name: "Tae-Rim Lee", email: "lee@hlab.skku.edu", research: "로봇 피지컬 AI", image: `${BASE_PATH}/images/taerim.png` },
         ]
     },
     {
