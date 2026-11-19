@@ -50,7 +50,7 @@ const members: { role: string; people: Member[] }[] = [
             { name: "Jaehyung Jang", research: "지식체계 기반 생성형 AI", image: `${BASE_PATH}/images/jaehyung.png` },
             { name: "Yejun Kim", research: "신체 모션 분석 AI", image: `${BASE_PATH}/images/yejun.png` },
             { name: "Yoohyun Kim", research: "로봇 피지컬 AI", image: `${BASE_PATH}/images/yoohyun.jpeg`, imagePosition: "center 55%" },
-            { name: "Taehyeon Kim", research: "신체 모션 분석 AI" },
+            { name: "Taehyeon Kim", research: "신체 모션 분석 AI", image: `${BASE_PATH}/images/taehyeon.jpg` },
         ]
     }
 ];
